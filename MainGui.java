@@ -1,3 +1,4 @@
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -13,7 +14,7 @@ public class MainGui {
 
         JFrame frame = new JFrame("pizza ordering app");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setPreferredSize(new Dimension(500, 450));
+        frame.setPreferredSize(new Dimension(1080, 720));
 
         // make the initial call to show the home screen
         showHomePanel(frame);
@@ -23,7 +24,7 @@ public class MainGui {
     public static void showHomePanel(JFrame frame) throws FileNotFoundException {
     	HomePanel homepanel = new HomePanel(frame);
         frame.getContentPane().add(homepanel);
-
+        
         frame.pack();
         frame.setVisible(true);
     }

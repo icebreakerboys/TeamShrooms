@@ -1,7 +1,5 @@
-import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.*;
@@ -30,27 +28,37 @@ public class OrderPanel extends JPanel {
 
 	private ButtonGroup group , tops;
     private JRadioButton pep, chs , veg  ;	
-   private JPanel top1_panel, top2_panel ,pizza_panel ;
+   private JPanel top1_panel, top2_panel ,pizza_panel, bg;
    private JCheckBox mush, onion , olives , exChs;
    private ImageIcon logo;
 
     public OrderPanel(JFrame frame) {
+    	
+    	// bg color
+    	float hue = 7;
+    	float saturation = (float) 0.48;
+    	float balance = (float) 0.57;
 
     	// button
     	setLayout(new FlowLayout(FlowLayout.CENTER, 40, 40));
     	
     	PayButton = new JButton(" Pay! ");
+    	PayButton.setPreferredSize(new Dimension(100, 50));
+    	PayButton.setFont(new Font("Arial", Font.PLAIN, 25));
     	PayButton.addActionListener(new ButtonListener(frame));
     	input_panel = new JPanel();
-		input_panel.setLayout(new GridLayout(10, 10, 10, 10));	
+		input_panel.setLayout(new GridLayout(10, 10, 10, 10));
 					
 		pizza_panel = new JPanel();
-		pizza_panel.setLayout(new GridLayout(1, 3));			
+		pizza_panel.setLayout(new GridLayout(1, 3));
+		
 		
 		//Delivery Type
 		pizza_type = new JLabel(" Pizza Type:");
+		pizza_type.setFont(new Font("Arial", Font.BOLD, 30));
 	//	delivery_panel.add(delivery_type);		
 		pep = new JRadioButton("Peperoni");
+		pep.setPreferredSize(new Dimension(50, 50));
 		pep.setActionCommand("PEP");
 		chs = new JRadioButton("Cheese");
 		chs.setActionCommand("par");
@@ -68,6 +76,7 @@ public class OrderPanel extends JPanel {
 		pizza_panel.add(pep);
 		pizza_panel.add(chs);
 		pizza_panel.add(veg);
+		pizza_panel.setAlignmentY(BOTTOM_ALIGNMENT);
 		
 	
 		input_panel.add(pizza_type);					
@@ -112,7 +121,8 @@ public class OrderPanel extends JPanel {
 		toppings2_panel = new JPanel();
 		toppings2_panel.setLayout(new GridLayout(2, 1));
 		
-		toppings_label = new JLabel("Toppings:");	
+		toppings_label = new JLabel("Toppings:");
+		toppings_label.setFont(new Font("Arial", Font.BOLD, 25));
 
 		onion = new JCheckBox("Onion", false);
 		mush = new JCheckBox("Mushroom", false);
@@ -156,7 +166,6 @@ public class OrderPanel extends JPanel {
     	
     	add(logo_name);
     	 add(PayButton);
-          
         
 
         }
