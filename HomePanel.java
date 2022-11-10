@@ -8,20 +8,20 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
+//import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import java.io.FileInputStream; 
 import java.io.FileNotFoundException; 
-import javafx.application.Application; 
-import javafx.scene.Group; 
-import javafx.scene.Scene; 
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;  
-import javafx.stage.Stage;  
+//import javafx.application.Application; 
+//import javafx.scene.Group; 
+//import javafx.scene.Scene; 
+//import javafx.scene.image.Image;
+//import javafx.scene.image.ImageView;  
+//import javafx.stage.Stage;  
 
-import javafx.*;
+//import javafx.*;
 
 
 
