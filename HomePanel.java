@@ -62,13 +62,14 @@ public class HomePanel extends JPanel {
     	OrderButton.setPreferredSize(new Dimension(300, 100));
     	OrderButton.setFont(new Font("Arial", Font.PLAIN, 30));
     	OrderButton.addActionListener(new ButtonListener(frame));
+		OrderButton.setLocation(500, 250);
     	title = new JLabel("Welcome to the Pizza Ordering Application :D");
-    	title.setLocation(200, 100);
+		title.setFont(new Font("Arial", Font.PLAIN, 30));
+    	title.setLocation(500, 100);
     	
     	// logo
-    	logo = new ImageIcon("C:\\\\Users\\\\Connor\\\\eclipse-workspace\\\\img\\\\asulogo.png");
-    	logo_name =new JLabel( logo , 0);
-    	
+    	logo = new ImageIcon("res/ASUlogo.png");
+    	logo_name = new JLabel( logo , 0);
     	
     	//frame.add(logo_name);
     	panel.add(title);
