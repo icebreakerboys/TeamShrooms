@@ -6,14 +6,14 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;  
-import javafx.stage.Stage;  
-import javafx.scene.control.*;
-import javafx.scene.layout.*;
-import javafx.scene.Scene;
+//import javafx.scene.image.Image;
+//import javafx.scene.image.ImageView;  
+//import javafx.stage.Stage;  
+//import javafx.scene.control.*;
+//import javafx.scene.layout.*;
+//import javafx.scene.Scene;
 
-import javafx.*;
+//import javafx.*;
 
 
 
@@ -42,7 +42,7 @@ public class OrderPanel extends JPanel {
     	// button
     	setLayout(new FlowLayout(FlowLayout.CENTER, 40, 40));
     	
-    	PayButton = new JButton(" Pay! ");
+    	PayButton = new JButton(" Pay Now! ");
     	PayButton.setPreferredSize(new Dimension(100, 50));
     	PayButton.setFont(new Font("Arial", Font.PLAIN, 25));
     	PayButton.addActionListener(new ButtonListener(frame));
@@ -54,10 +54,10 @@ public class OrderPanel extends JPanel {
 		
 		
 		//Delivery Type
-		pizza_type = new JLabel(" Pizza Type:");
+		pizza_type = new JLabel(" Base Pizza Type:");
 		pizza_type.setFont(new Font("Arial", Font.BOLD, 30));
 	//	delivery_panel.add(delivery_type);		
-		pep = new JRadioButton("Peperoni");
+		pep = new JRadioButton("Pepperoni");
 		pep.setPreferredSize(new Dimension(50, 50));
 		pep.setActionCommand("PEP");
 		chs = new JRadioButton("Cheese");

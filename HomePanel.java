@@ -8,6 +8,7 @@ import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.*;
 
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
@@ -15,20 +16,20 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
+//import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import java.io.FileInputStream; 
 import java.io.FileNotFoundException; 
-import javafx.application.Application; 
-import javafx.scene.Group; 
-import javafx.scene.Scene; 
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;  
-import javafx.stage.Stage;  
+//import javafx.application.Application; 
+//import javafx.scene.Group; 
+//import javafx.scene.Scene; 
+//import javafx.scene.image.Image;
+//import javafx.scene.image.ImageView;  
+//import javafx.stage.Stage;  
 
-import javafx.*;
+//import javafx.*;
 
 
 
@@ -61,6 +62,8 @@ public class HomePanel extends JPanel {
     	OrderButton.setPreferredSize(new Dimension(300, 100));
     	OrderButton.setFont(new Font("Arial", Font.PLAIN, 30));
     	OrderButton.addActionListener(new ButtonListener(frame));
+    	title = new JLabel("Welcome to the Pizza Ordering Application :D");
+    	title.setLocation(200, 100);
     	
     	// logo
     	logo = new ImageIcon("C:\\\\Users\\\\Connor\\\\eclipse-workspace\\\\img\\\\asulogo.png");
