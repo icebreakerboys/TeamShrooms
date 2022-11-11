@@ -21,11 +21,6 @@ import java.io.FileNotFoundException;
 //import javafx.scene.image.ImageView;  
 //import javafx.stage.Stage;  
 
-//import javafx.*;
-
-
-
-
 public class HomePanel extends JPanel {
     private JButton OrderButton;
     private JButton battleRoyale;

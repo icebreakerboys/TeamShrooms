@@ -1,3 +1,4 @@
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -14,8 +15,7 @@ public class MainGui {
         JFrame frame = new JFrame("pizza ordering app");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setPreferredSize(new Dimension(500, 450));
-
-        // make the initial call to show the home screen
+        frame.setBackground(Color.CYAN);        // make the initial call to show the home screen
         showHomePanel(frame);
     }
 
@@ -24,6 +24,7 @@ public class MainGui {
     	HomePanel homepanel = new HomePanel(frame);
         frame.getContentPane().add(homepanel);
 
+        frame.getContentPane().setBackground(Color.CYAN);
         frame.pack();
         frame.setVisible(true);
     }
