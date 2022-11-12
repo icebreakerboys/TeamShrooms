@@ -6,25 +6,14 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-//import javafx.scene.image.Image;
-//import javafx.scene.image.ImageView;  
-//import javafx.stage.Stage;  
-//import javafx.scene.control.*;
-//import javafx.scene.layout.*;
-//import javafx.scene.Scene;
-
-//import javafx.*;
-
-
-
-
 public class OrderPanel extends JPanel {
     private JButton PayButton;
 
     private JLabel pizza_type, logo_name, toppings_label;
     private JPanel input_panel, toppings_panel, toppings2_panel;
 
-	String table_no_str, name_str, address_str, contact_str;
+	String pizzaType, name_str, address_str, contact_str;
+	String toppings;
 
 	private ButtonGroup group, tops;
     private JRadioButton pep, chs, veg;	
@@ -64,10 +53,8 @@ public class OrderPanel extends JPanel {
 		chs.setActionCommand(pizzaType = "Cheese");
 		veg = new JRadioButton("Veggie");
 		veg.setActionCommand(pizzaType = "Veggie");
-
     	// text to make pizza selection
     	
-
     	// adding the elements
 		group = new ButtonGroup();
 		group.add(pep);
@@ -78,37 +65,12 @@ public class OrderPanel extends JPanel {
 		pizza_panel.add(veg);
 		pizza_panel.setAlignmentY(BOTTOM_ALIGNMENT);
 		
-	
+
 		input_panel.add(pizza_type);					
 		input_panel.add(pizza_panel);		
 		add(pizza_type);
 		add(pizza_panel);
-		
-		//toppings
-		/*
-		table_no = new JLabel("Pizza toppings");	
-		
-		
-		mush = new JRadioButton("Mushroom");
-		mush.setActionCommand("mush");
-		exChs = new JRadioButton("Extra Cheese");
-		exChs.setActionCommand("exChs");
-		onion = new JRadioButton("Onion");
-		onion.setActionCommand("onion");
-		olives = new JRadioButton("Olives");
-		olives.setActionCommand("olives");
-		
-		
-		tops = new ButtonGroup();
-		tops.add(mush);
-		tops.add(olives);
-		tops.add(onion);
-		tops.add(exChs);
-		delivery_panel.add(mush);
-		delivery_panel.add(olives);
-		delivery_panel.add(onion);
-		delivery_panel.add(exChs);
-		*/
+
 		top1_panel = new JPanel();
 		top1_panel.setLayout(new GridLayout(1, 3));
 		
@@ -186,7 +148,10 @@ public class OrderPanel extends JPanel {
 					toppings += " Extra cheese";		}
 				}
 		};
-	    	Pizza newPizza = new Pizza("pepperoni" ," mush ", MainGui.total );
+
+		
+		Pizza newPizza = new Pizza("pepperoni" ," mush ", MainGui.total );
+
 		onion.addItemListener(itemListener);
 		onion.addItemListener(onionButt);
 		mush.addItemListener(itemListener);
@@ -213,7 +178,9 @@ public class OrderPanel extends JPanel {
     	logo_name =new JLabel(logo , 0);
     	
     	add(logo_name);
-    	 add(PayButton);
+
+    	add(PayButton);
+
         
 
         }
@@ -228,16 +195,19 @@ public class OrderPanel extends JPanel {
         @Override
         public void actionPerformed(ActionEvent event) {
         	// remove the elements
-		remove(logo_name);
+
+        	
+        	Pizza newZA = new Pizza(pizzaType, toppings, MainGui.total);
+
         	remove(PayButton);
         	remove(pizza_panel);
         	remove(toppings2_panel);
         	remove(pizza_type);
         	remove(toppings2_panel);
+        	remove(logo_name);
 
         	// transition to payment screen
-        	MainGui.showPaymentPanel(frame , newZA);
-
+        	MainGui.showPaymentPanel(frame, newZA);
 
         }
     }

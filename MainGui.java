@@ -21,12 +21,11 @@ public class MainGui {
         // make the initial call to show the home screen
         
         showHomePanel(frame);
-       
     }
     
 
     // displays the home screen
-    public static void showHomePanel(JFrame frame) throws FileNotFoundException {
+    public static void showHomePanel(JFrame frame) {
     	HomePanel homepanel = new HomePanel(frame);
         frame.getContentPane().add(homepanel);
         
@@ -39,22 +38,27 @@ public class MainGui {
     }
 
     // displays the ordering screen
-   public static void showOrderPanel(JFrame frame) {
+    public static void showOrderPanel(JFrame frame) {
     	OrderPanel orderpanel = new OrderPanel(frame);
         frame.getContentPane().add(orderpanel);
+
+        //setting background colors to maroon
+        Color customColor = new Color(255, 198, 39);
+        orderpanel.setBackground(customColor);
 
         frame.pack();
         frame.setVisible(true);
     }
 
     // displays the screen to make "payment"
-    public static void showPaymentPanel(JFrame frame , Pizza p) {
-    	PaymentPanel paymentpanel = new PaymentPanel(frame , p);
+    public static void showPaymentPanel(JFrame frame, Pizza p) {
+    	PaymentPanel paymentpanel = new PaymentPanel(frame, p);
         frame.getContentPane().add(paymentpanel);
 
         frame.pack();
         frame.setVisible(true);
     }
+
     public static void showProgressGUI(JFrame frame) {
     	progressGUI progress = new progressGUI(frame);
     	
@@ -63,8 +67,9 @@ public class MainGui {
         frame.pack();
         frame.setVisible(true);
     }
-    public static void showChefsView(JFrame frame , order i) {
-    	chefsViewGui chef = new chefsViewGui(frame , i);
+
+    public static void showChefsView(JFrame frame, Order i) {
+    	chefsViewGui chef = new chefsViewGui(frame, i);
     	
         frame.getContentPane().add(chef);
       

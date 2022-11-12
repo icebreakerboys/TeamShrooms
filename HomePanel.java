@@ -22,27 +22,15 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import java.io.FileInputStream; 
 import java.io.FileNotFoundException; 
-//import javafx.application.Application; 
-//import javafx.scene.Group; 
-//import javafx.scene.Scene; 
-//import javafx.scene.image.Image;
-//import javafx.scene.image.ImageView;  
-//import javafx.stage.Stage;  
-
-//import javafx.*;
-
-
-
 
 public class HomePanel extends JPanel {
     private JButton OrderButton;
-    private JButton battleRoyale;
-    private JLabel title , pic ,logo_name;
+    private JLabel title, pic, logo_name;
     private JTextArea PizzaArea;
     private ImageIcon logo;
     private JPanel panel;
 
-    public HomePanel(JFrame frame) throws FileNotFoundException {
+    public HomePanel(JFrame frame) {
     	
     	panel = new JPanel();
     	panel.setPreferredSize(new Dimension(1080, 720));
@@ -76,7 +64,7 @@ public class HomePanel extends JPanel {
     	panel.add(OrderButton);
         add(panel);
         
-        }
+    }
 
     public class ButtonListener implements ActionListener {
     	private JFrame frame;
@@ -90,6 +78,9 @@ public class HomePanel extends JPanel {
             remove(logo_name);
         	remove(OrderButton);
         	remove(title);
+
+        	remove(logo_name);
+
         	remove(panel);
 
         	// transition to order screen
