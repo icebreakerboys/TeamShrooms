@@ -9,6 +9,11 @@ public class Pizza {
 		this.topping = topping;
 		this.cost = cost;
 	}
+	public Pizza() {
+		type = "UNKOWN";
+		topping = "NOT SPECIFIED";
+		cost = 0;
+	}
 	
 	public void changeType(String newType) {
 		type = newType;
@@ -30,6 +35,17 @@ public class Pizza {
 	public String getTopping() {
 		return topping;
 	}
+	public void setType(String newType) {
+		type = newType;
+	}
+	
+	public void setTopping(String newTopping) {
+		topping = newTopping;
+	}
+	public void setCost(double newCost) {
+		cost = newCost;
+	}
+	
 	
 	
 	
