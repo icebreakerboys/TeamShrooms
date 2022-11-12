@@ -180,6 +180,7 @@ public class OrderPanel extends JPanel {
         @Override
         public void actionPerformed(ActionEvent event) {
         	// remove the elements
+		remove(logo_name);
         	remove(PayButton);
         	remove(pizza_panel);
         	remove(toppings2_panel);

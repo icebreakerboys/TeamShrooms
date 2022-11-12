@@ -31,9 +31,14 @@ public class PaymentPanel extends JPanel {
     private JButton ReturnHome, IDbutton;
     private JButton battleRoyale;
     private JLabel cost1, cost2;
-    private JLabel IDPrompt;
+    private JLabel IDPrompt, namePrompt, getEmail;
     private JTextArea PizzaArea;
     private JPanel payment_text, enterID;
+    private String name, email;
+    private int id;
+    Customer c = new Customer();
+    Order newOrder = new Order();
+
 
     public PaymentPanel(JFrame frame) {
 
@@ -47,6 +52,13 @@ public class PaymentPanel extends JPanel {
     	IDPrompt = new JLabel("enter your ASU ID: ");
     	IDPrompt.setFont(new Font("Arial", Font.PLAIN, 20));
     	IDPrompt.setLocation(300, 100);
+	    
+		namePrompt = new JLabel("Enter your Name: ");
+    	namePrompt.setLocation(300, 100);
+    	
+		getEmail = new JLabel("Enter your email:");
+    	getEmail.setLocation(400, 200);
+    	 
 
     	// text box for UD
     	PizzaArea = new JTextArea(5, 20);
@@ -76,6 +88,10 @@ public class PaymentPanel extends JPanel {
     	add(enterID);
     	
         add(ReturnHome);
+		email = enterEmail.getText();
+        name = nameArea.getText();
+
+        
     }
 
     public class ButtonListener implements ActionListener {
@@ -91,14 +107,11 @@ public class PaymentPanel extends JPanel {
         	remove(payment_text);
         	remove(ReturnHome);
         	remove(PizzaArea);
+			remove(IDArea);
+  
 
         	// transition back to the home panel
-        	try {
-				MainGui.showHomePanel(frame);
-			} catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+        		MainGui.showChefsView(frame ,newOrder );
 
         }
     }

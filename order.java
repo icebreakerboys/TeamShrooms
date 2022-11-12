@@ -1,4 +1,4 @@
-public class order {
+public class Order {
 	
 	private Pizza pizza;
 	private Customer customer;
@@ -6,7 +6,7 @@ public class order {
 	private int pickUpTime;
 	private int orderProgress;
 	
-	public order(Pizza pizza, Customer customer, double cost, int pickUpTime) {
+	public Order(Pizza pizza, Customer customer, double cost, int pickUpTime) {
 		this.pizza = pizza;
 		this.customer = customer;
 		this.cost = cost;

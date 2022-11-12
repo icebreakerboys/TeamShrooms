@@ -87,6 +87,7 @@ public class HomePanel extends JPanel {
         @Override
         public void actionPerformed(ActionEvent event) {
         	// removing the elements
+            remove(logo_name);
         	remove(OrderButton);
         	remove(title);
         	remove(panel);
