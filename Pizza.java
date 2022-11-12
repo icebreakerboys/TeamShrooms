@@ -9,6 +9,7 @@ public class Pizza {
 		this.topping = topping;
 		this.cost = cost;
 	}
+	
 	public Pizza() {
 		type = "UNKOWN";
 		topping[0] = false; topping[1] = false; topping[2] = false; topping[3] = false;
@@ -19,23 +20,35 @@ public class Pizza {
 		type = newType;
 	}
 	
-	public void setTopping(String newTopping) {
-		//topping = newTopping;
+	public void setTopping(boolean newTopping[]) {
+		topping = newTopping;
 	}
 	public void setCost(double newCost) {
 		cost = newCost;
 	}
-	
-	public double calculateCost() {
-		// functionality to be added
-		return 0.00;
+
+	public double getCost(){
+		return cost;
 	}
-	
+
 	public String getType() {
 		return type;
 	}
 	
 	public String getTopping() {
-		return "";
+		String toppingList = "";
+		if(topping[0]){
+			toppingList += "Onions\n";
+		}
+		if(topping[1]){
+			toppingList += "Mushroom\n";
+		}
+		if(topping[2]){
+			toppingList += "Olives\n";
+		}
+		if(topping[3]){
+			toppingList += "Extra Cheese\n";
+		}
+		return toppingList;
 	}
 }

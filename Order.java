@@ -1,18 +1,18 @@
 public class Order {
-	
+	private static int curOrderNum = 1;
 	private Pizza pizza;
 	private Customer customer;
-	private double cost;
 	private String pickUpTime;
 	private int orderProgress;
 	private int orderNumber;
 	
-	public Order(Pizza pizza, Customer customer, double cost, String pickUpTime) {
+	public Order(Pizza pizza, Customer customer, String pickUpTime) {
 		this.pizza = pizza;
 		this.customer = customer;
-		this.cost = cost;
 		this.pickUpTime = pickUpTime;
 		orderProgress = 1;
+		orderNumber = curOrderNum;
+		curOrderNum++;
 	}
 
 	public Order() {
@@ -20,7 +20,7 @@ public class Order {
 	}
 	
 	public double getCost() {
-		return cost;
+		return pizza.getCost();
 	}
 	
 	public String getPickUpTime() {

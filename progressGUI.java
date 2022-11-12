@@ -27,32 +27,22 @@ public class progressGUI extends JPanel{
   
     public  progressGUI(JFrame frame, Order o) {
   
-    
-
     	// button
     	ReturnHome = new JButton(" Return to home ");
     	ReturnHome.addActionListener(new ButtonListener(frame));
 
-    	
-    	   
-        
     	progressBAR=new JProgressBar(0,5);    
     	progressBAR.setBounds(40,40,160,30);         
     	progressBAR.setValue(0);    
     	progressBAR.setStringPainted(true);    
         
-
-  
-
     	// add the elements
         add(ReturnHome);
         add(progressBAR);
      
       
-  
-
-
-    }public void updateProgress(int newProgress){
+    }
+	public void updateProgress(int newProgress){
     	progressBAR.setValue(newProgress);
     	
     }

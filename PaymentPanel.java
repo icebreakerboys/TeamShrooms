@@ -47,7 +47,7 @@ public class PaymentPanel extends JPanel {
     	
     	costPrompt = new JLabel("your total: ");
     	costPrompt.setFont(new Font("Arial", Font.BOLD, 30));
-    	cost = new JLabel(currencyFormatter.format(MainGui.total));
+    	cost = new JLabel(currencyFormatter.format(p.getCost()));
     	cost.setFont(new Font("Arial", Font.ITALIC, 25));
     	cost.setForeground(Color.green);
     	costPrompt.setLocation(200, 010);
@@ -90,23 +90,27 @@ public class PaymentPanel extends JPanel {
 			String name = nameArea.getText();
 			String email = emailArea.getText();
 			Customer c = new Customer(name, email, ID);
-			String pickUpTime = setTime();
-			System.out.println(pickUpTime);
-			Order o = new Order(p, c, MainGui.total, pickUpTime);
 
-        	remove(nameArea);
-        	remove(namePrompt);
-			remove(emailArea);
-			remove(emailPrompt);
-			remove(IDArea);
-			remove(IDPrompt);
-			remove(cost);
-			remove(costPrompt);
-        	remove(submitButton);
-        	
+			if(c.verifyID()){
+				remove(nameArea);
+        		remove(namePrompt);
+				remove(emailArea);
+				remove(emailPrompt);
+				remove(IDArea);
+				remove(IDPrompt);
+				remove(cost);
+				remove(costPrompt);
+        		remove(submitButton);
+
+				String pickUpTime = setTime();
+				Order o = new Order(p, c, pickUpTime);
+				//MainGui.showHomePanel(frame);
+				MainGui.showProgressGUI(frame, o);
+			} else {
+				IDPrompt.setText("ID invalid: ");
+			}
+			
         	// transition back to the home panel
-        	//MainGui.showHomePanel(frame);
-			MainGui.showProgressGUI(frame, o);
 			//MainGui.showChefsView(frame, o);
         }
     }
