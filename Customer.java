@@ -16,7 +16,7 @@ public class Customer {
 	}
 		public Customer() {
 		email ="UNKNOWN";
-		ID = 0;
+		ID = "";
 		name = "UNKNOWN";
 	}
 	

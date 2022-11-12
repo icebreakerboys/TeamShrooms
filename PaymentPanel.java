@@ -40,7 +40,7 @@ public class PaymentPanel extends JPanel {
     Order newOrder = new Order();
 
 
-    public PaymentPanel(JFrame frame) {
+    public PaymentPanel(JFrame frame, Pizza p) {
 
     	// button
     	ReturnHome = new JButton(" Return to home ");
