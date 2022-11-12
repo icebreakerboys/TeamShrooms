@@ -38,10 +38,26 @@ public class MainGui {
     }
 
     // displays the screen to make "payment"
-    public static void showPaymentPanel(JFrame frame) {
-    	PaymentPanel paymentpanel = new PaymentPanel(frame);
+    public static void showPaymentPanel(JFrame frame , Pizza p) {
+    	PaymentPanel paymentpanel = new PaymentPanel(frame , p);
         frame.getContentPane().add(paymentpanel);
 
+        frame.pack();
+        frame.setVisible(true);
+    }
+    public static void showProgressGUI(JFrame frame) {
+    	progressGUI progress = new progressGUI(frame);
+    	
+        frame.getContentPane().add(progress);
+      
+        frame.pack();
+        frame.setVisible(true);
+    }
+    public static void showChefsView(JFrame frame , order i) {
+    	chefsViewGui chef = new chefsViewGui(frame , i);
+    	
+        frame.getContentPane().add(chef);
+      
         frame.pack();
         frame.setVisible(true);
     }

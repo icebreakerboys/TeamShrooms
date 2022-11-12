@@ -11,6 +11,11 @@ public class Customer {
 		this.ID = ID;
 		this.name = name;
 	}
+	public Customer() {
+		email ="UNKNOWN";
+		ID = 0;
+		name = "UNKNOWN";
+	}
 	
 	public String getEmail() {
 		return email;
@@ -24,5 +29,16 @@ public class Customer {
 	public String getName() {
 		return name;
 	}
+	public void setName(String newName) {
+		name = newName;
+	}
+	public void setEmail(String newEmail) {
+		email = newEmail;
+	}
+	public void setId(int newID) {
+		ID = newID;
+	}
+	
+	
 	
 }

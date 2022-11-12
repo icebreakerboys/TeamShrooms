@@ -26,7 +26,8 @@ public class OrderPanel extends JPanel {
     private JLabel pizza_type, logo_name, toppings_label;
     private JPanel input_panel, toppings_panel, toppings2_panel;
 
-	String table_no_str, name_str, address_str, contact_str;
+	String pizzaType, name_str, address_str, contact_str;
+	String toppings;
 
 	private ButtonGroup group , tops;
     private JRadioButton pep, chs , veg  ;	
@@ -51,11 +52,11 @@ public class OrderPanel extends JPanel {
 		pizza_type = new JLabel(" Pizza Type:");
 	//	delivery_panel.add(delivery_type);		
 		pep = new JRadioButton("Peperoni");
-		pep.setActionCommand("PEP");
+		pep.setActionCommand(pizzaType = "PEP");
 		chs = new JRadioButton("Cheese");
-		chs.setActionCommand("par");
+		chs.setActionCommand(pizzaType = "Cheese");
 		veg = new JRadioButton("Veggie");
-		veg.setActionCommand("veg");
+		veg.setActionCommand( pizzaType = "Veggie");
 
     	// text to make pizza selection
     	
@@ -69,7 +70,7 @@ public class OrderPanel extends JPanel {
 		pizza_panel.add(chs);
 		pizza_panel.add(veg);
 		
-	
+
 		input_panel.add(pizza_type);					
 		input_panel.add(pizza_panel);		
 		add(pizza_type);
@@ -130,13 +131,63 @@ public class OrderPanel extends JPanel {
 				if(state == ItemEvent.SELECTED)
 				{
 					MainGui.total  += rate + 1.50;
+					
+					
+							
 				}
 			}
 		};
+	
+		ItemListener onionButt = new ItemListener()
+		{
+			public void itemStateChanged(ItemEvent itemEvent)
+			{
+				AbstractButton abstractButton = (AbstractButton) itemEvent.getSource();
+				int state = itemEvent.getStateChange();
+				if(state == ItemEvent.SELECTED)
+				{
+					toppings = "onion";		}
+				
+			}
+		};
+		ItemListener mushButt = new ItemListener()
+		{public void itemStateChanged(ItemEvent itemEvent)
+			{AbstractButton abstractButton = (AbstractButton) itemEvent.getSource();
+				int state = itemEvent.getStateChange();
+				if(state == ItemEvent.SELECTED)
+				{
+					toppings += " mush";		}
+				}
+		};
+		ItemListener olivesButt = new ItemListener()
+		{public void itemStateChanged(ItemEvent itemEvent)
+			{AbstractButton abstractButton = (AbstractButton) itemEvent.getSource();
+				int state = itemEvent.getStateChange();
+				if(state == ItemEvent.SELECTED)
+				{
+					toppings += " olives";		}
+				}
+		};
+		ItemListener exchsButt = new ItemListener()
+		{public void itemStateChanged(ItemEvent itemEvent)
+			{AbstractButton abstractButton = (AbstractButton) itemEvent.getSource();
+				int state = itemEvent.getStateChange();
+				if(state == ItemEvent.SELECTED)
+				{
+					toppings += " Extra cheese";		}
+				}
+		};
+		
+		Pizza newPizza = new Pizza("pepperoni" ," mush ", MainGui.total );
+		
 		onion.addItemListener(itemListener);
+		onion.addItemListener(onionButt);
 		mush.addItemListener(itemListener);
+		mush.addItemListener(mushButt);
 		olives.addItemListener(itemListener);
+		olives.addItemListener(olivesButt);
 		exChs.addItemListener(itemListener);	
+		exChs.addItemListener(exchsButt);	
 		
 		top1_panel.add(onion);
 		top1_panel.add(mush);
@@ -155,7 +206,7 @@ public class OrderPanel extends JPanel {
     	logo_name =new JLabel(logo , 0);
     	
     	add(logo_name);
-    	 add(PayButton);
+    	add(PayButton);
           
         
 
@@ -171,14 +222,17 @@ public class OrderPanel extends JPanel {
         @Override
         public void actionPerformed(ActionEvent event) {
         	// remove the elements
+        	
+        	Pizza newZA = new Pizza(pizzaType , toppings , MainGui.total );
         	remove(PayButton);
         	remove(pizza_panel);
         	remove(toppings2_panel);
         	remove(pizza_type);
         	remove(toppings2_panel);
+        	remove(logo_name);
 
         	// transition to payment screen
-        	MainGui.showPaymentPanel(frame);
+        	MainGui.showPaymentPanel(frame , newZA);
 
         }
     }

@@ -65,6 +65,7 @@ public class HomePanel extends JPanel {
         	// removing the elements
         	remove(OrderButton);
         	remove(title);
+        	remove(logo_name);
 
         	// transition to order screen
         	MainGui.showOrderPanel(frame);

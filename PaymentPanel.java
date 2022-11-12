@@ -25,23 +25,40 @@ import javafx.*;
 
 public class PaymentPanel extends JPanel {
     private JButton ReturnHome;
-    private JButton battleRoyale;
+    private JButton seeProgress;
     private JLabel cost;
-    private JLabel IDPrompt;
-    private JTextArea PizzaArea;
+    private JLabel IDPrompt, namePrompt,getEmail , CHECK;
+    private JTextArea IDArea , nameArea ,enterEmail ;
+    private String name , email;
+    private int id;
+    Customer c = new Customer();
+    order newOrder = new order();
 
-    public PaymentPanel(JFrame frame) {
+
+    public PaymentPanel(JFrame frame , Pizza p) {
 
     	// button
-    	ReturnHome = new JButton(" Return to home ");
-    	ReturnHome.addActionListener(new ButtonListener(frame));
+    
+    	seeProgress = new JButton(" See order progress ");
+    	seeProgress.addActionListener(new ButtonListener(frame));
 
     	// text for enter ASU id prompt
+    	namePrompt = new JLabel("Enter your Name: ");
+    	namePrompt.setLocation(300, 100);
+    	
     	IDPrompt = new JLabel("enter your ASU ID:");
-    	IDPrompt.setLocation(300, 100);
+    	IDPrompt.setLocation(300, 200);
+    	
+    	getEmail = new JLabel("Enter your email:");
+    	getEmail.setLocation(400, 200);
+    	 
 
     	// text box for email?
-    	PizzaArea = new JTextArea(5, 20);
+    	IDArea = new JTextArea(1, 5);
+    	nameArea = new JTextArea(1, 5);
+    	enterEmail = new JTextArea(1,5);
+    	
+    	
 
     	// text for total price
     	NumberFormat currencyFormatter = NumberFormat.getCurrencyInstance();
@@ -50,11 +67,22 @@ public class PaymentPanel extends JPanel {
     	cost.setLocation(200, 010);
 
     	// add the elements
+    //	order newOrder = new order(pza , );
     	add(cost);
+    	add(namePrompt);
+    	add(nameArea);
     	add(IDPrompt);
-        add(PizzaArea);
-        add(ReturnHome);
-
+        add(IDArea);
+        add(getEmail);
+        add(enterEmail);
+        add(seeProgress);
+        email = enterEmail.getText();
+        name = nameArea.getText();
+       // id = Integer.parseInt(enterEmail.getText());
+        CHECK = new JLabel(name); 
+        add (CHECK);
+        
+ 
         }
 
     public class ButtonListener implements ActionListener {
@@ -66,18 +94,21 @@ public class PaymentPanel extends JPanel {
         @Override
         public void actionPerformed(ActionEvent event) {
         	// remove the elements
+        	
         	remove(IDPrompt);
+        	remove(nameArea);
+        	remove(namePrompt);
         	remove(cost);
-        	remove(ReturnHome);
-        	remove(PizzaArea);
+        	remove(seeProgress);
+        	remove(IDArea);
+  
 
         	// transition back to the home panel
-        	try {
-				MainGui.showHomePanel(frame);
-			} catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+        	
+				//MainGui.showProgressGUI(frame);
+				MainGui.showChefsView(frame ,newOrder );
+			
+     
 
         }
     }
