@@ -66,7 +66,7 @@ public class HomePanel extends JPanel {
     	title.setLocation(200, 100);
     	
     	// logo
-    	logo = new ImageIcon("C:\\\\Users\\\\Connor\\\\eclipse-workspace\\\\img\\\\asulogo.png");
+    	logo = new ImageIcon("res\\asulogo.png");
     	logo_name =new JLabel( logo , 0);
     	
     	
@@ -86,6 +86,7 @@ public class HomePanel extends JPanel {
         @Override
         public void actionPerformed(ActionEvent event) {
         	// removing the elements
+            remove(logo_name);
         	remove(OrderButton);
         	remove(title);
         	remove(panel);
