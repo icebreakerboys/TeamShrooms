@@ -19,7 +19,7 @@ public class progressGUI extends JPanel{
     int i=0,num=0;     
     private JButton ReturnHome;
   
-    public  progressGUI(JFrame frame) {
+    public  progressGUI(JFrame frame, Order o) {
   
     
 
