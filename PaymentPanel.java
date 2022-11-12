@@ -125,6 +125,8 @@ public class PaymentPanel extends JPanel {
         	remove(cost);
 			remove(costPrompt);
         	remove(seeProgress);
+			remove(getEmail);
+			remove(enterEmail);
         	remove(IDArea);
   
 
