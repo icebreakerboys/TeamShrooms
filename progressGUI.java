@@ -68,13 +68,7 @@ public class progressGUI extends JPanel{
         	remove(progressBAR);
  
         	// transition back to the home panel
-        	try {
-				MainGui.showHomePanel(frame);
-			} catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-
+			MainGui.showHomePanel(frame);
         }
 
 }}
