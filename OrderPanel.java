@@ -13,7 +13,7 @@ public class OrderPanel extends JPanel {
     private JPanel input_panel, toppings_panel, toppings2_panel;
 
 	String pizzaType, name_str, address_str, contact_str;
-	String toppings;
+	boolean toppings[] = new boolean[4];
 	int topPrice, basePrice;
 
 	private ButtonGroup group, tops;
@@ -115,12 +115,12 @@ public class OrderPanel extends JPanel {
 				int state = itemEvent.getStateChange();
 				if(state == ItemEvent.SELECTED)
 				{
-					toppings = "onion";
-					topPrice  += 1.50;
+					toppings[0] = true;
+					topPrice += 1.50;
 				}
 				if(state == ItemEvent.DESELECTED){
-
-					topPrice  -= 1.50;
+					toppings[0] = false;
+					topPrice -= 1.50;
 				}
 			}
 		};
@@ -132,12 +132,12 @@ public class OrderPanel extends JPanel {
 				int state = itemEvent.getStateChange();
 				if(state == ItemEvent.SELECTED)
 				{
-					toppings += " mush";
-					topPrice  += 5.00;
+					toppings[1] = true;
+					topPrice += 5.00;
 				}
 				if(state == ItemEvent.DESELECTED){
-
-					topPrice  -= 1.50;
+					toppings[1] = false;
+					topPrice -= 1.50;
 				}
 			}
 		};
@@ -149,12 +149,12 @@ public class OrderPanel extends JPanel {
 				int state = itemEvent.getStateChange();
 				if(state == ItemEvent.SELECTED)
 				{
-					toppings += " olives";
-					topPrice  += 1.50;	
+					toppings[2] = true;
+					topPrice += 1.50;	
 				}
 				if(state == ItemEvent.DESELECTED){
-
-					topPrice  -= 1.50;
+					toppings[2] = false;
+					topPrice -= 1.50;
 				}
 			}
 		};
@@ -166,12 +166,12 @@ public class OrderPanel extends JPanel {
 				int state = itemEvent.getStateChange();
 				if(state == ItemEvent.SELECTED)
 				{
-					toppings += " Extra cheese";
-					topPrice  += 1.50;		
+					toppings[3] = true;
+					topPrice += 1.50;		
 				}
 				if(state == ItemEvent.DESELECTED){
-					
-					topPrice  -= 1.50;
+					toppings[3] = false;
+					topPrice -= 1.50;
 				}
 			}
 		};
