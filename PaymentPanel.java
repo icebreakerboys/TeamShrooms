@@ -76,9 +76,7 @@ public class PaymentPanel extends JPanel {
     	add(enterID);
     	
         add(ReturnHome);
-
-        
-        }
+    }
 
     public class ButtonListener implements ActionListener {
     	private JFrame frame;

@@ -1,12 +1,15 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
 
 public class Customer {
 
 	private String email;
-	private int ID;
+	private String ID;
 	//private Order order;
 	private String name;
 	
-	public Customer(String name, String email, int ID) {
+	public Customer(String name, String email, String ID) {
 		this.email = email;
 		this.ID = ID;
 		this.name = name;
@@ -18,7 +21,21 @@ public class Customer {
 	
 	public boolean verifyID() {
 		//functionality to be added
-		return true;
+		boolean b = false;
+		try{
+			File dataBase = new File("database.txt");
+			Scanner dBP = new Scanner(dataBase);
+			while(dBP.hasNextLine()){
+				String curID = dBP.nextLine();
+				if(this.ID.equals(curID)){
+					b = true;
+				}
+			}
+			dBP.close();
+		} catch (FileNotFoundException e){
+			System.out.println("database.txt was unabled to be opened.");
+		}
+		return b;
 	}
 	
 	public String getName() {

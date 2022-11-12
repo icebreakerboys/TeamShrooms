@@ -56,7 +56,7 @@ public class OrderPanel extends JPanel {
 		//Delivery Type
 		pizza_type = new JLabel(" Base Pizza Type:");
 		pizza_type.setFont(new Font("Arial", Font.BOLD, 30));
-	//	delivery_panel.add(delivery_type);		
+	//	delivery_panel.add(delivery_type);
 		pep = new JRadioButton("Pepperoni");
 		pep.setPreferredSize(new Dimension(50, 50));
 		pep.setActionCommand("PEP");
