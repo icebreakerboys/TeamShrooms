@@ -161,7 +161,7 @@ public class OrderPanel extends JPanel {
 		add(toppings2_panel);
 	
       
-        logo = new ImageIcon("C:\\Users\\Connor\\eclipse-workspace\\test\\src\\pizzaSlice.jpg");
+        logo = new ImageIcon("res\\pizzaSlice.jpg");
     	logo_name =new JLabel(logo , 0);
     	
     	add(logo_name);
@@ -180,6 +180,7 @@ public class OrderPanel extends JPanel {
         @Override
         public void actionPerformed(ActionEvent event) {
         	// remove the elements
+		remove(logo_name);
         	remove(PayButton);
         	remove(pizza_panel);
         	remove(toppings2_panel);
