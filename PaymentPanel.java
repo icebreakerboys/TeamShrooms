@@ -1,53 +1,32 @@
 import javax.swing.JPanel;
-
-import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.FileNotFoundException;
 import java.text.NumberFormat;
-
-import javax.swing.JPanel;
-import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
+import java.time.LocalDateTime;
+import java.util.Random;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
-import javax.swing.JTextField;
-
-//import javafx.*;
 
 public class PaymentPanel extends JPanel {
-    private JButton ReturnHome, IDbutton;
-    private JButton seeProgress;
+    private JButton submitButton;
     private JLabel cost, costPrompt;
-    private JLabel IDPrompt, namePrompt, getEmail, CHECK;
-    private JTextArea PizzaArea;
-    private JPanel payment_text, enterID;
-    private String name, email;
-    private JTextArea IDArea, nameArea, enterEmail ;
-    private int id;
+    private JLabel IDPrompt, namePrompt, emailPrompt, CHECK;
+    private JTextArea IDArea, nameArea, emailArea ;
 	
-    Customer c = new Customer();
-    Order newOrder = new Order();
-
+    Pizza p;
 
     public PaymentPanel(JFrame frame, Pizza p) {
+		this.p = p;
 
     	// button
-    	seeProgress = new JButton(" See order progress ");
-    	seeProgress.addActionListener(new ButtonListener(frame));
+    	submitButton = new JButton(" See order progress ");
+    	submitButton.addActionListener(new ButtonListener(frame));
 
     	// text for enter ASU id prompt
-    	enterID = new JPanel();
-    	enterID.setLocation(400, 600);
     	IDPrompt = new JLabel("enter your ASU ID: ");
     	IDPrompt.setFont(new Font("Arial", Font.PLAIN, 20));
     	IDPrompt.setLocation(300, 200);
@@ -55,16 +34,15 @@ public class PaymentPanel extends JPanel {
 		namePrompt = new JLabel("Enter your Name: ");
     	namePrompt.setLocation(300, 100);
     	
-    	getEmail = new JLabel("Enter your email:");
-    	getEmail.setLocation(400, 200);
+    	emailPrompt = new JLabel("Enter your email:");
+		emailPrompt.setLocation(400, 200);
     	 
     	// text box for email?
     	IDArea = new JTextArea(1, 5);
     	nameArea = new JTextArea(1, 5);
-    	enterEmail = new JTextArea(1,5);
+    	emailArea = new JTextArea(1,5);
     	
     	// text for total price
-    	payment_text = new JPanel();
     	NumberFormat currencyFormatter = NumberFormat.getCurrencyInstance();
     	
     	costPrompt = new JLabel("your total: ");
@@ -74,22 +52,7 @@ public class PaymentPanel extends JPanel {
     	cost.setForeground(Color.green);
     	costPrompt.setLocation(200, 010);
     	cost.setLocation(200, 010);
-
-    	// add the elements
-    	//payment_text.add(cost1);
-    	//payment_text.add(cost2);
-    	//add(payment_text, BorderLayout.SOUTH);
-    	
-    	//enterID.add(IDPrompt);
-    	//enterID.add(PizzaArea);
-    	//enterID.add(IDbutton);
-    	//add(enterID);
-    	
-        //add(ReturnHome);
-		//email = enterEmail.getText();
-        //name = nameArea.getText();
 		
-
 		//Order newOrder = new Order(p, c, );
     	add(costPrompt);
 		add(cost);
@@ -97,12 +60,22 @@ public class PaymentPanel extends JPanel {
     	add(nameArea);
     	add(IDPrompt);
         add(IDArea);
-        add(getEmail);
-        add(enterEmail);
-        add(seeProgress);
-        email = enterEmail.getText();
-        name = nameArea.getText();
+        add(emailArea);
+        add(emailPrompt);
+        add(submitButton);
     }
+
+	private String setTime(){
+		LocalDateTime time = LocalDateTime.now();
+		Random r = new Random();
+		int hour = time.getHour();
+		int minute = time.getMinute() + r.nextInt(16) + 10;
+		if(minute >= 60){
+			hour++;
+			minute = minute - 60;
+		}
+		return hour + ":" + minute;
+	}
 
     public class ButtonListener implements ActionListener {
     	private JFrame frame;
@@ -112,28 +85,29 @@ public class PaymentPanel extends JPanel {
 
         @Override
         public void actionPerformed(ActionEvent event) {
-        	// remove the elements
-        	//remove(enterID);
-        	//remove(payment_text);
-        	//remove(ReturnHome);
-        	//remove(PizzaArea);
-			//remove(IDArea);
 
-        	remove(IDPrompt);
+        	String ID = IDArea.getText();
+			String name = nameArea.getText();
+			String email = emailArea.getText();
+			Customer c = new Customer(name, email, ID);
+			String pickUpTime = setTime();
+			System.out.println(pickUpTime);
+			Order o = new Order(p, c, MainGui.total, pickUpTime);
+
         	remove(nameArea);
         	remove(namePrompt);
-        	remove(cost);
+			remove(emailArea);
+			remove(emailPrompt);
+			remove(IDArea);
+			remove(IDPrompt);
+			remove(cost);
 			remove(costPrompt);
-        	remove(seeProgress);
-			remove(getEmail);
-			remove(enterEmail);
-        	remove(IDArea);
-  
-
+        	remove(submitButton);
+        	
         	// transition back to the home panel
-        	MainGui.showHomePanel(frame);
-			//MainGui.showProgressGUI(frame);
-			//MainGui.showChefsView(frame, newOrder);
+        	//MainGui.showHomePanel(frame);
+			MainGui.showProgressGUI(frame, o);
+			//MainGui.showChefsView(frame, o);
         }
     }
 }
