@@ -60,8 +60,8 @@ public class PaymentPanel extends JPanel {
     	add(nameArea);
     	add(IDPrompt);
         add(IDArea);
-        add(emailArea);
         add(emailPrompt);
+        add(emailArea);
         add(submitButton);
     }
 

@@ -46,8 +46,8 @@ public class Order {
 		this.pickUpTime = newPickUp;
 	}
 	
-	public void emailCustomer() {
-		// to be implemented
+	public String getCustomerEmail() {
+		return customer.getEmail();
 	}
 
 }
