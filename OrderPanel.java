@@ -24,7 +24,8 @@ public class OrderPanel extends JPanel {
     private JLabel pizza_type, logo_name, toppings_label;
     private JPanel input_panel, toppings_panel, toppings2_panel;
 
-	String table_no_str, name_str, address_str, contact_str;
+	String pizzaType, name_str, address_str, contact_str;
+	String toppings;
 
 	private ButtonGroup group , tops;
     private JRadioButton pep, chs , veg  ;	
@@ -77,7 +78,7 @@ public class OrderPanel extends JPanel {
 		pizza_panel.add(veg);
 		pizza_panel.setAlignmentY(BOTTOM_ALIGNMENT);
 		
-	
+
 		input_panel.add(pizza_type);					
 		input_panel.add(pizza_panel);		
 		add(pizza_type);
@@ -185,7 +186,10 @@ public class OrderPanel extends JPanel {
 					toppings += " Extra cheese";		}
 				}
 		};
-	    	Pizza newPizza = new Pizza("pepperoni" ," mush ", MainGui.total );
+
+		
+		Pizza newPizza = new Pizza("pepperoni" ," mush ", MainGui.total );
+
 		onion.addItemListener(itemListener);
 		onion.addItemListener(onionButt);
 		mush.addItemListener(itemListener);
@@ -212,7 +216,9 @@ public class OrderPanel extends JPanel {
     	logo_name =new JLabel(logo , 0);
     	
     	add(logo_name);
-    	 add(PayButton);
+
+    	add(PayButton);
+
         
 
         }
@@ -227,16 +233,19 @@ public class OrderPanel extends JPanel {
         @Override
         public void actionPerformed(ActionEvent event) {
         	// remove the elements
-		remove(logo_name);
+
+        	
+        	Pizza newZA = new Pizza(pizzaType , toppings , MainGui.total );
+
         	remove(PayButton);
         	remove(pizza_panel);
         	remove(toppings2_panel);
         	remove(pizza_type);
         	remove(toppings2_panel);
+        	remove(logo_name);
 
         	// transition to payment screen
         	MainGui.showPaymentPanel(frame , newZA);
-
 
         }
     }

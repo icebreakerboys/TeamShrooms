@@ -28,42 +28,46 @@ import javax.swing.JTextField;
 
 
 public class PaymentPanel extends JPanel {
-    private JButton ReturnHome, IDbutton;
-    private JButton battleRoyale;
-    private JLabel cost1, cost2;
-    private JLabel IDPrompt ,namePrompt, getEmail;
-    private JTextArea PizzaArea;
-    private JPanel payment_text, enterID;
+
+    private JButton ReturnHome;
+    private JButton seeProgress;
+    private JLabel cost;
+    private JLabel IDPrompt, namePrompt,getEmail , CHECK;
+    private JTextArea IDArea , nameArea ,enterEmail ;
+
     private String name , email;
     private int id;
     Customer c = new Customer();
     order newOrder = new order();
 
 
-    public PaymentPanel(JFrame frame) {
+
+    public PaymentPanel(JFrame frame , Pizza p) {
 
     	// button
-    	ReturnHome = new JButton(" Return to home ");
-    	ReturnHome.addActionListener(new ButtonListener(frame));
+    
+    	seeProgress = new JButton(" See order progress ");
+    	seeProgress.addActionListener(new ButtonListener(frame));
 
     	// text for enter ASU id prompt
-    	enterID = new JPanel();
-    	enterID.setLocation(400, 600);
-    	IDPrompt = new JLabel("enter your ASU ID: ");
-    	IDPrompt.setFont(new Font("Arial", Font.PLAIN, 20));
-    	IDPrompt.setLocation(300, 100);
-	    
-	namePrompt = new JLabel("Enter your Name: ");
+
+    	namePrompt = new JLabel("Enter your Name: ");
     	namePrompt.setLocation(300, 100);
     	
-	getEmail = new JLabel("Enter your email:");
+    	IDPrompt = new JLabel("enter your ASU ID:");
+    	IDPrompt.setLocation(300, 200);
+    	
+    	getEmail = new JLabel("Enter your email:");
     	getEmail.setLocation(400, 200);
     	 
 
-    	// text box for UD
-    	PizzaArea = new JTextArea(5, 20);
-    	IDbutton = new JButton(" Submit ID ");
-    	IDbutton.addActionListener(new ButtonListener(frame));
+    	// text box for email?
+    	IDArea = new JTextArea(1, 5);
+    	nameArea = new JTextArea(1, 5);
+    	enterEmail = new JTextArea(1,5);
+    	
+    	
+
 
     	// text for total price
     	payment_text = new JPanel();
@@ -78,20 +82,24 @@ public class PaymentPanel extends JPanel {
     	cost2.setLocation(200, 010);
 
     	// add the elements
-    	payment_text.add(cost1);
-    	payment_text.add(cost2);
-    	add(payment_text, BorderLayout.SOUTH);
-    	
-    	enterID.add(IDPrompt);
-    	enterID.add(PizzaArea);
-    	enterID.add(IDbutton);
-    	add(enterID);
-    	
-        add(ReturnHome);
-	email = enterEmail.getText();
-        name = nameArea.getText();
 
+    //	order newOrder = new order(pza , );
+    	add(cost);
+    	add(namePrompt);
+    	add(nameArea);
+    	add(IDPrompt);
+        add(IDArea);
+        add(getEmail);
+        add(enterEmail);
+        add(seeProgress);
+        email = enterEmail.getText();
+        name = nameArea.getText();
+       // id = Integer.parseInt(enterEmail.getText());
+        CHECK = new JLabel(name); 
+        add (CHECK);
         
+ 
+
         }
 
     public class ButtonListener implements ActionListener {
@@ -103,15 +111,20 @@ public class PaymentPanel extends JPanel {
         @Override
         public void actionPerformed(ActionEvent event) {
         	// remove the elements
-        	remove(enterID);
-        	remove(payment_text);
-        	remove(ReturnHome);
-        	remove(PizzaArea);
-		remove(IDArea);
+
+        	remove(IDPrompt);
+        	remove(nameArea);
+        	remove(namePrompt);
+        	remove(cost);
+        	remove(seeProgress);
+        	remove(IDArea);
   
 
         	// transition back to the home panel
-        		MainGui.showChefsView(frame ,newOrder );
+        	
+				//MainGui.showProgressGUI(frame);
+				MainGui.showChefsView(frame ,newOrder );
+			
 
         }
     }

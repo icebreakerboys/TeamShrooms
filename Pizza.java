@@ -15,12 +15,15 @@ public class Pizza {
 		cost = 0;
 	}
 	
-	public void changeType(String newType) {
+	public void setType(String newType) {
 		type = newType;
 	}
 	
-	public void changeTopping(String newTopping) {
+	public void setTopping(String newTopping) {
 		topping = newTopping;
+	}
+	public void setCost(double newCost) {
+		cost = newCost;
 	}
 	
 	public double calculateCost() {
