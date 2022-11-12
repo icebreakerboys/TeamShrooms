@@ -14,6 +14,7 @@ public class Order {
 		this.pickUpTime = pickUpTime;
 		orderProgress = 1;
 	}
+
 	public Order() {
 		
 	}
@@ -33,7 +34,8 @@ public class Order {
 		if(orderProgress != 3) {
 			orderProgress++;
 		}
-	} public void setOrderProgress(int newOrderProgress) {
+	} 
+	public void setOrderProgress(int newOrderProgress) {
 		this.orderProgress = newOrderProgress;
 		
 	}
@@ -42,9 +44,7 @@ public class Order {
 	}
 	public void setPickUpTime(String newPickUp) {
 		this.pickUpTime = newPickUp;
-		
 	}
-	
 	
 	public void emailCustomer() {
 		// to be implemented

@@ -62,8 +62,7 @@ public class progressGUI extends JPanel{
         	remove(progressBAR);
  
         	// transition back to the home panel
-				MainGui.showHomePanel(frame);
-
+			MainGui.showHomePanel(frame);
         }
 
 }}

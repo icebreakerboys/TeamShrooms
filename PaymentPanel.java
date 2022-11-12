@@ -24,13 +24,10 @@ import javax.swing.JTextField;
 
 //import javafx.*;
 
-
-
-
 public class PaymentPanel extends JPanel {
     private JButton ReturnHome, IDbutton;
     private JButton seeProgress;
-    private JLabel cost, cost1, cost2;
+    private JLabel cost, costPrompt;
     private JLabel IDPrompt, namePrompt, getEmail, CHECK;
     private JTextArea PizzaArea;
     private JPanel payment_text, enterID;
@@ -70,13 +67,13 @@ public class PaymentPanel extends JPanel {
     	payment_text = new JPanel();
     	NumberFormat currencyFormatter = NumberFormat.getCurrencyInstance();
     	
-    	cost1 = new JLabel("your total: ");
-    	cost1.setFont(new Font("Arial", Font.BOLD, 30));
-    	cost2 = new JLabel(currencyFormatter.format(MainGui.total));
-    	cost2.setFont(new Font("Arial", Font.ITALIC, 25));
-    	cost2.setForeground(Color.green);
-    	cost1.setLocation(200, 010);
-    	cost2.setLocation(200, 010);
+    	costPrompt = new JLabel("your total: ");
+    	costPrompt.setFont(new Font("Arial", Font.BOLD, 30));
+    	cost = new JLabel(currencyFormatter.format(MainGui.total));
+    	cost.setFont(new Font("Arial", Font.ITALIC, 25));
+    	cost.setForeground(Color.green);
+    	costPrompt.setLocation(200, 010);
+    	cost.setLocation(200, 010);
 
     	// add the elements
     	//payment_text.add(cost1);
@@ -93,9 +90,9 @@ public class PaymentPanel extends JPanel {
         //name = nameArea.getText();
 		
 
-		//Order newOrder = new Order(pza, );
-    	add(cost1);
-		add(cost2);
+		//Order newOrder = new Order(p, c, );
+    	add(costPrompt);
+		add(cost);
     	add(namePrompt);
     	add(nameArea);
     	add(IDPrompt);
@@ -105,11 +102,7 @@ public class PaymentPanel extends JPanel {
         add(seeProgress);
         email = enterEmail.getText();
         name = nameArea.getText();
-
-        
- 
-
-        }
+    }
 
     public class ButtonListener implements ActionListener {
     	private JFrame frame;
@@ -129,8 +122,8 @@ public class PaymentPanel extends JPanel {
         	remove(IDPrompt);
         	remove(nameArea);
         	remove(namePrompt);
-        	remove(cost1);
-			remove(cost2);
+        	remove(cost);
+			remove(costPrompt);
         	remove(seeProgress);
         	remove(IDArea);
   
