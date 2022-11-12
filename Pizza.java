@@ -1,17 +1,17 @@
 public class Pizza {
 
 	private String type;
-	private String topping;
+	private boolean topping[] = new boolean[4];
 	private double cost;
 	
-	public Pizza(String type, String topping, double cost) {
+	public Pizza(String type, boolean topping[], double cost) {
 		this.type = type;
 		this.topping = topping;
 		this.cost = cost;
 	}
 	public Pizza() {
 		type = "UNKOWN";
-		topping = "NOT SPECIFIED";
+		topping[0] = false; topping[1] = false; topping[2] = false; topping[3] = false;
 		cost = 0;
 	}
 	
@@ -20,7 +20,7 @@ public class Pizza {
 	}
 	
 	public void setTopping(String newTopping) {
-		topping = newTopping;
+		//topping = newTopping;
 	}
 	public void setCost(double newCost) {
 		cost = newCost;
@@ -36,6 +36,6 @@ public class Pizza {
 	}
 	
 	public String getTopping() {
-		return topping;
+		return "";
 	}
 }
