@@ -91,7 +91,7 @@ public class PaymentPanel extends JPanel {
 			String email = emailArea.getText();
 			Customer c = new Customer(name, email, ID);
 
-			if(c.verifyID()){
+			if(c.verifyID() && !name.equals("") && !email.equals("")){
 				remove(nameArea);
         		remove(namePrompt);
 				remove(emailArea);
