@@ -39,27 +39,35 @@ public class MainGui {
     }
 
     // displays the ordering screen
-    public static void showOrderPanel(JFrame frame) {
+   public static void showOrderPanel(JFrame frame) {
     	OrderPanel orderpanel = new OrderPanel(frame);
         frame.getContentPane().add(orderpanel);
-        
-        //setting background colors to gold
-        Color customColor2 = new Color(255,198,39);
-        orderpanel.setBackground(customColor2);
-        
+
         frame.pack();
         frame.setVisible(true);
     }
 
     // displays the screen to make "payment"
-    public static void showPaymentPanel(JFrame frame) {
-    	PaymentPanel paymentpanel = new PaymentPanel(frame);
+    public static void showPaymentPanel(JFrame frame , Pizza p) {
+    	PaymentPanel paymentpanel = new PaymentPanel(frame , p);
         frame.getContentPane().add(paymentpanel);
 
-        //setting background colors to maroon
-        Color customColor = new Color(140,29,64);
-        paymentpanel.setBackground(customColor);
-               
+        frame.pack();
+        frame.setVisible(true);
+    }
+    public static void showProgressGUI(JFrame frame) {
+    	progressGUI progress = new progressGUI(frame);
+    	
+        frame.getContentPane().add(progress);
+      
+        frame.pack();
+        frame.setVisible(true);
+    }
+    public static void showChefsView(JFrame frame , order i) {
+    	chefsViewGui chef = new chefsViewGui(frame , i);
+    	
+        frame.getContentPane().add(chef);
+      
         frame.pack();
         frame.setVisible(true);
     }
