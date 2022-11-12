@@ -94,7 +94,8 @@ public class PaymentPanel extends JPanel {
 		
 
 		//Order newOrder = new Order(pza, );
-    	add(cost);
+    	add(cost1);
+		add(cost2);
     	add(namePrompt);
     	add(nameArea);
     	add(IDPrompt);
@@ -128,7 +129,8 @@ public class PaymentPanel extends JPanel {
         	remove(IDPrompt);
         	remove(nameArea);
         	remove(namePrompt);
-        	remove(cost);
+        	remove(cost1);
+			remove(cost2);
         	remove(seeProgress);
         	remove(IDArea);
   

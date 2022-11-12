@@ -11,12 +11,6 @@ import javax.swing.JTextArea;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javafx.application.Application;
-import javafx.scene.Scene;
-import javafx.scene.control.Hyperlink;
-import javafx.scene.control.ProgressBar;
-import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 
 public class progressGUI extends JPanel{
    // ProgressBar progressBar = new ProgressBar(0);
@@ -68,12 +62,7 @@ public class progressGUI extends JPanel{
         	remove(progressBAR);
  
         	// transition back to the home panel
-        	try {
 				MainGui.showHomePanel(frame);
-			} catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
 
         }
 
