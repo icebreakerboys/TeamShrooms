@@ -1,15 +1,10 @@
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
-import java.awt.*;
-
 import javax.swing.JFrame;
 
 public class MainGui {
 
-	
 	static double total;
     public static void main(String[] args) throws FileNotFoundException {
 
@@ -19,11 +14,9 @@ public class MainGui {
         frame.setBackground(Color.RED);
        
         // make the initial call to show the home screen
-        
         showHomePanel(frame);
     }
     
-
     // displays the home screen
     public static void showHomePanel(JFrame frame) {
     	HomePanel homepanel = new HomePanel(frame);
@@ -59,8 +52,8 @@ public class MainGui {
         frame.setVisible(true);
     }
 
-    public static void showProgressGUI(JFrame frame) {
-    	progressGUI progress = new progressGUI(frame);
+    public static void showProgressGUI(JFrame frame, Order o) {
+    	progressGUI progress = new progressGUI(frame, o);
     	
         frame.getContentPane().add(progress);
       
@@ -76,7 +69,4 @@ public class MainGui {
         frame.pack();
         frame.setVisible(true);
     }
-
-
-
 }

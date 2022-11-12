@@ -9,8 +9,12 @@
 /PaymentPanel.class
 /Pizza.class
 /order.class
-/out/
+/OrderPanel$2.class
+/OrderPanel$3.class
+/OrderPanel$4.class
+/OrderPanel$5.class
+/OrderPanel$ButtonListener.class
 /chef.class
 /chefsViewGui.class
-/progressGUI$ButtonListener.class
 /progressGUI.class
+/progressGUI$ButtonListener.class
