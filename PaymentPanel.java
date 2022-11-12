@@ -1,5 +1,9 @@
 import javax.swing.JPanel;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
@@ -18,21 +22,24 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-import javafx.*;
+//import javafx.*;
 
 
 
 
 public class PaymentPanel extends JPanel {
+
     private JButton ReturnHome;
     private JButton seeProgress;
     private JLabel cost;
     private JLabel IDPrompt, namePrompt,getEmail , CHECK;
     private JTextArea IDArea , nameArea ,enterEmail ;
+
     private String name , email;
     private int id;
     Customer c = new Customer();
     order newOrder = new order();
+
 
 
     public PaymentPanel(JFrame frame , Pizza p) {
@@ -43,6 +50,7 @@ public class PaymentPanel extends JPanel {
     	seeProgress.addActionListener(new ButtonListener(frame));
 
     	// text for enter ASU id prompt
+
     	namePrompt = new JLabel("Enter your Name: ");
     	namePrompt.setLocation(300, 100);
     	
@@ -60,13 +68,21 @@ public class PaymentPanel extends JPanel {
     	
     	
 
+
     	// text for total price
+    	payment_text = new JPanel();
     	NumberFormat currencyFormatter = NumberFormat.getCurrencyInstance();
     	
-    	cost = new JLabel("your total: " + currencyFormatter.format(MainGui.total));
-    	cost.setLocation(200, 010);
+    	cost1 = new JLabel("your total: ");
+    	cost1.setFont(new Font("Arial", Font.BOLD, 30));
+    	cost2 =  new JLabel(currencyFormatter.format(MainGui.total));
+    	cost2.setFont(new Font("Arial", Font.ITALIC, 25));
+    	cost2.setForeground(Color.green);
+    	cost1.setLocation(200, 010);
+    	cost2.setLocation(200, 010);
 
     	// add the elements
+
     //	order newOrder = new order(pza , );
     	add(cost);
     	add(namePrompt);
@@ -83,6 +99,7 @@ public class PaymentPanel extends JPanel {
         add (CHECK);
         
  
+
         }
 
     public class ButtonListener implements ActionListener {
@@ -94,7 +111,7 @@ public class PaymentPanel extends JPanel {
         @Override
         public void actionPerformed(ActionEvent event) {
         	// remove the elements
-        	
+
         	remove(IDPrompt);
         	remove(nameArea);
         	remove(namePrompt);
@@ -108,7 +125,6 @@ public class PaymentPanel extends JPanel {
 				//MainGui.showProgressGUI(frame);
 				MainGui.showChefsView(frame ,newOrder );
 			
-     
 
         }
     }

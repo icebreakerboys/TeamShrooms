@@ -11,6 +11,7 @@ public class Customer {
 		this.ID = ID;
 		this.name = name;
 	}
+
 	public Customer() {
 		email ="UNKNOWN";
 		ID = 0;
@@ -28,8 +29,9 @@ public class Customer {
 	
 	public String getName() {
 		return name;
-	}
-	public void setName(String newName) {
+}
+		public void setName(String newName) {
+
 		name = newName;
 	}
 	public void setEmail(String newEmail) {
@@ -38,7 +40,6 @@ public class Customer {
 	public void setId(int newID) {
 		ID = newID;
 	}
-	
-	
+
 	
 }

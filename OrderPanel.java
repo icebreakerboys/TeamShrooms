@@ -1,21 +1,19 @@
-import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;  
-import javafx.stage.Stage;  
-import javafx.scene.control.*;
-import javafx.scene.layout.*;
-import javafx.scene.Scene;
+//import javafx.scene.image.Image;
+//import javafx.scene.image.ImageView;  
+//import javafx.stage.Stage;  
+//import javafx.scene.control.*;
+//import javafx.scene.layout.*;
+//import javafx.scene.Scene;
 
-import javafx.*;
+//import javafx.*;
 
 
 
@@ -31,23 +29,32 @@ public class OrderPanel extends JPanel {
 
 	private ButtonGroup group , tops;
     private JRadioButton pep, chs , veg  ;	
-   private JPanel top1_panel, top2_panel ,pizza_panel ;
+   private JPanel top1_panel, top2_panel ,pizza_panel, bg;
    private JCheckBox mush, onion , olives , exChs;
    private ImageIcon logo;
 
     public OrderPanel(JFrame frame) {
+    	
+    	// bg color
+    	float hue = 7;
+    	float saturation = (float) 0.48;
+    	float balance = (float) 0.57;
 
     	// button
     	setLayout(new FlowLayout(FlowLayout.CENTER, 40, 40));
     	
-    	PayButton = new JButton(" Pay! ");
+    	PayButton = new JButton(" Pay Now! ");
+    	PayButton.setPreferredSize(new Dimension(100, 50));
+    	PayButton.setFont(new Font("Arial", Font.PLAIN, 25));
     	PayButton.addActionListener(new ButtonListener(frame));
     	input_panel = new JPanel();
-		input_panel.setLayout(new GridLayout(10, 10, 10, 10));	
+		input_panel.setLayout(new GridLayout(10, 10, 10, 10));
 					
 		pizza_panel = new JPanel();
-		pizza_panel.setLayout(new GridLayout(1, 3));			
+		pizza_panel.setLayout(new GridLayout(1, 3));
 		
+		
+		//Delivery Type
 		//Delivery Type
 		pizza_type = new JLabel(" Pizza Type:");
 	//	delivery_panel.add(delivery_type);		
@@ -69,6 +76,7 @@ public class OrderPanel extends JPanel {
 		pizza_panel.add(pep);
 		pizza_panel.add(chs);
 		pizza_panel.add(veg);
+		pizza_panel.setAlignmentY(BOTTOM_ALIGNMENT);
 		
 
 		input_panel.add(pizza_type);					
@@ -113,7 +121,8 @@ public class OrderPanel extends JPanel {
 		toppings2_panel = new JPanel();
 		toppings2_panel.setLayout(new GridLayout(2, 1));
 		
-		toppings_label = new JLabel("Toppings:");	
+		toppings_label = new JLabel("Toppings:");
+		toppings_label.setFont(new Font("Arial", Font.BOLD, 25));
 
 		onion = new JCheckBox("Onion", false);
 		mush = new JCheckBox("Mushroom", false);
@@ -177,9 +186,10 @@ public class OrderPanel extends JPanel {
 					toppings += " Extra cheese";		}
 				}
 		};
+
 		
 		Pizza newPizza = new Pizza("pepperoni" ," mush ", MainGui.total );
-		
+
 		onion.addItemListener(itemListener);
 		onion.addItemListener(onionButt);
 		mush.addItemListener(itemListener);
@@ -202,12 +212,13 @@ public class OrderPanel extends JPanel {
 		add(toppings2_panel);
 	
       
-        logo = new ImageIcon("C:\\Users\\Connor\\eclipse-workspace\\test\\src\\pizzaSlice.jpg");
+        logo = new ImageIcon("res\\pizzaSlice.jpg");
     	logo_name =new JLabel(logo , 0);
     	
     	add(logo_name);
+
     	add(PayButton);
-          
+
         
 
         }
@@ -222,8 +233,10 @@ public class OrderPanel extends JPanel {
         @Override
         public void actionPerformed(ActionEvent event) {
         	// remove the elements
+
         	
         	Pizza newZA = new Pizza(pizzaType , toppings , MainGui.total );
+
         	remove(PayButton);
         	remove(pizza_panel);
         	remove(toppings2_panel);
