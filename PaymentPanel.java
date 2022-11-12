@@ -24,85 +24,75 @@ import javax.swing.JTextField;
 
 //import javafx.*;
 
+
+
+
 public class PaymentPanel extends JPanel {
     private JButton ReturnHome, IDbutton;
-    private JButton seeProgress;
-    private JLabel cost, costPrompt;
-    private JLabel IDPrompt, namePrompt, getEmail, CHECK;
+    private JButton battleRoyale;
+    private JLabel cost1, cost2;
+    private JLabel IDPrompt ,namePrompt, getEmail;
     private JTextArea PizzaArea;
     private JPanel payment_text, enterID;
-    private String name, email;
-    private JTextArea IDArea, nameArea, enterEmail ;
+    private String name , email;
     private int id;
-	
     Customer c = new Customer();
-    Order newOrder = new Order();
+    order newOrder = new order();
 
 
-    public PaymentPanel(JFrame frame, Pizza p) {
+    public PaymentPanel(JFrame frame, Pizza P) {
 
     	// button
-    	seeProgress = new JButton(" See order progress ");
-    	seeProgress.addActionListener(new ButtonListener(frame));
+    	ReturnHome = new JButton(" Return to home ");
+    	ReturnHome.addActionListener(new ButtonListener(frame));
 
     	// text for enter ASU id prompt
     	enterID = new JPanel();
     	enterID.setLocation(400, 600);
     	IDPrompt = new JLabel("enter your ASU ID: ");
     	IDPrompt.setFont(new Font("Arial", Font.PLAIN, 20));
-    	IDPrompt.setLocation(300, 200);
+    	IDPrompt.setLocation(300, 100);
 	    
-		namePrompt = new JLabel("Enter your Name: ");
+	namePrompt = new JLabel("Enter your Name: ");
     	namePrompt.setLocation(300, 100);
     	
-    	getEmail = new JLabel("Enter your email:");
+	getEmail = new JLabel("Enter your email:");
     	getEmail.setLocation(400, 200);
     	 
-    	// text box for email?
-    	IDArea = new JTextArea(1, 5);
-    	nameArea = new JTextArea(1, 5);
-    	enterEmail = new JTextArea(1,5);
-    	
+
+    	// text box for UD
+    	PizzaArea = new JTextArea(5, 20);
+    	IDbutton = new JButton(" Submit ID ");
+    	IDbutton.addActionListener(new ButtonListener(frame));
+
     	// text for total price
     	payment_text = new JPanel();
     	NumberFormat currencyFormatter = NumberFormat.getCurrencyInstance();
     	
-    	costPrompt = new JLabel("your total: ");
-    	costPrompt.setFont(new Font("Arial", Font.BOLD, 30));
-    	cost = new JLabel(currencyFormatter.format(MainGui.total));
-    	cost.setFont(new Font("Arial", Font.ITALIC, 25));
-    	cost.setForeground(Color.green);
-    	costPrompt.setLocation(200, 010);
-    	cost.setLocation(200, 010);
+    	cost1 = new JLabel("your total: ");
+    	cost1.setFont(new Font("Arial", Font.BOLD, 30));
+    	cost2 =  new JLabel(currencyFormatter.format(MainGui.total));
+    	cost2.setFont(new Font("Arial", Font.ITALIC, 25));
+    	cost2.setForeground(Color.green);
+    	cost1.setLocation(200, 010);
+    	cost2.setLocation(200, 010);
 
     	// add the elements
-    	//payment_text.add(cost1);
-    	//payment_text.add(cost2);
-    	//add(payment_text, BorderLayout.SOUTH);
+    	payment_text.add(cost1);
+    	payment_text.add(cost2);
+    	add(payment_text, BorderLayout.SOUTH);
     	
-    	//enterID.add(IDPrompt);
-    	//enterID.add(PizzaArea);
-    	//enterID.add(IDbutton);
-    	//add(enterID);
+    	enterID.add(IDPrompt);
+    	enterID.add(PizzaArea);
+    	enterID.add(IDbutton);
+    	add(enterID);
     	
-        //add(ReturnHome);
-		//email = enterEmail.getText();
-        //name = nameArea.getText();
-		
-
-		//Order newOrder = new Order(p, c, );
-    	add(costPrompt);
-		add(cost);
-    	add(namePrompt);
-    	add(nameArea);
-    	add(IDPrompt);
-        add(IDArea);
-        add(getEmail);
-        add(enterEmail);
-        add(seeProgress);
-        email = enterEmail.getText();
+        add(ReturnHome);
+	email = enterEmail.getText();
         name = nameArea.getText();
-    }
+
+        
+        }
 
     public class ButtonListener implements ActionListener {
     	private JFrame frame;
@@ -113,25 +103,17 @@ public class PaymentPanel extends JPanel {
         @Override
         public void actionPerformed(ActionEvent event) {
         	// remove the elements
-        	//remove(enterID);
-        	//remove(payment_text);
-        	//remove(ReturnHome);
-        	//remove(PizzaArea);
-			//remove(IDArea);
-
-        	remove(IDPrompt);
-        	remove(nameArea);
-        	remove(namePrompt);
-        	remove(cost);
-			remove(costPrompt);
-        	remove(seeProgress);
-        	remove(IDArea);
+        	remove(enterID);
+        	remove(payment_text);
+        	remove(ReturnHome);
+        	remove(PizzaArea);
+		remove(IDArea);
   
 
         	// transition back to the home panel
-        	MainGui.showHomePanel(frame);
-			//MainGui.showProgressGUI(frame);
-			//MainGui.showChefsView(frame, newOrder);
+        		MainGui.showChefsView(frame ,newOrder );
+
         }
     }
+
 }

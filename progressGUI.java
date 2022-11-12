@@ -11,12 +11,12 @@ import javax.swing.JTextArea;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javafx.application.Application;
-import javafx.scene.Scene;
-import javafx.scene.control.Hyperlink;
-import javafx.scene.control.ProgressBar;
-import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
+//import javafx.application.Application;
+//import javafx.scene.Scene;
+//import javafx.scene.control.Hyperlink;
+//import javafx.scene.control.ProgressBar;
+//import javafx.scene.layout.VBox;
+//import javafx.stage.Stage;
 
 public class progressGUI extends JPanel{
    // ProgressBar progressBar = new ProgressBar(0);
