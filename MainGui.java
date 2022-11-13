@@ -61,6 +61,15 @@ public class MainGui {
     public static void showProgressGUI(JFrame frame, Order o) {
     	progressGUI progress = new progressGUI(frame, o);
         frame.getContentPane().add(progress);
+        
+        JFrame chefsScreen = new JFrame("Chefs view");
+        chefsScreen.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        chefsScreen.setPreferredSize(new Dimension(1080, 720));
+        chefsScreen.setBackground(Color.RED);
+        chefsViewGui chef = new chefsViewGui(chefsScreen , o , progress);
+        chefsScreen.getContentPane().add(chef);
+        chefsScreen.pack();
+        chefsScreen.setVisible(true);
 
         frame.pack();
         frame.setVisible(true);
