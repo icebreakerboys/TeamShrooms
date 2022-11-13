@@ -111,6 +111,7 @@ public class PaymentPanel extends JPanel {
 				MainGui.showProgressGUI(frame, o);
 			} else {
 				IDPrompt.setText("ID invalid: ");
+				IDPrompt.setForeground(Color.red);
 			}
 			
         	// transition back to the home panel
