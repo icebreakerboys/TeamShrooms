@@ -53,5 +53,15 @@ public class Order {
 	public String getCustomerEmail() {
 		return customer.getEmail();
 	}
+	public String getCustomerName() {
+		return customer.getName();
+	}
+	
+	public String getPizzaType() {
+		return pizza.getType();
+	}
+	public String getPizzaTopping() {
+		return pizza.getTopping();
+	}
 
 }
