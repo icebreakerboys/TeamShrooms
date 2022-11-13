@@ -22,6 +22,17 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import java.io.FileInputStream; 
 import java.io.FileNotFoundException; 
+//import javafx.application.Application; 
+//import javafx.scene.Group; 
+//import javafx.scene.Scene; 
+//import javafx.scene.image.Image;
+//import javafx.scene.image.ImageView;  
+//import javafx.stage.Stage;  
+
+//import javafx.*;
+
+
+
 
 public class HomePanel extends JPanel {
     private JButton OrderButton;
@@ -66,8 +77,9 @@ public class HomePanel extends JPanel {
 		subtitle_panel.add(subtitle);
     	
     	// logo
-    	logo = new ImageIcon("res/ASUlogo.png");
-    	logo_name = new JLabel( logo , 0);
+    	logo = new ImageIcon("res\\asulogo.png");
+    	logo_name =new JLabel( logo , 0);
+    	
     	
     	//frame.add(logo_name);
     	panel.add(title);
@@ -75,7 +87,7 @@ public class HomePanel extends JPanel {
 		add(subtitle_panel);
         add(panel);
         
-    }
+        }
 
     public class ButtonListener implements ActionListener {
     	private JFrame frame;
