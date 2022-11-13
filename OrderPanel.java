@@ -22,6 +22,7 @@ public class OrderPanel extends JPanel {
     private ImageIcon logo;
 
     public OrderPanel(JFrame frame) {
+		//OrderPanel.this.setSize(1080, 720);
 
     	// button
     	setLayout(new FlowLayout(FlowLayout.CENTER, 40, 40));
@@ -35,6 +36,8 @@ public class OrderPanel extends JPanel {
 					
 		pizza_panel = new JPanel();
 		pizza_panel.setLayout(new GridLayout(1, 3));
+		pizza_panel.setSize(400, 100);
+		pizza_panel.setLocation(100, 100);
 		
 		//Delivery Type
 		pizzaPrompt = new JLabel(" Base Pizza Type:");

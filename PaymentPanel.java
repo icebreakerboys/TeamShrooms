@@ -34,12 +34,12 @@ public class PaymentPanel extends JPanel {
     	IDPrompt.setFont(new Font("Arial", Font.PLAIN, 20));
     	IDPrompt.setLocation(300, 100);
 	    
-	namePrompt = new JLabel("Enter your Name: ");
+		namePrompt = new JLabel("Enter your Name: ");
     	namePrompt.setLocation(300, 100);
     	
     	emailPrompt = new JLabel("Enter your email:");
 		emailPrompt.setLocation(400, 200);
-    	 
+    	
     	// text box for email?
     	IDArea = new JTextArea(1, 5);
     	nameArea = new JTextArea(1, 5);
