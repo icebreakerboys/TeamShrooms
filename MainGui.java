@@ -1,6 +1,10 @@
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
+import java.awt.*;
+
 import javax.swing.JFrame;
 
 public class MainGui {
@@ -10,13 +14,17 @@ public class MainGui {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setPreferredSize(new Dimension(1080, 720));
         frame.setBackground(Color.RED);
+        frame.setResizable(false);
        
         // make the initial call to show the home screen
+        
         showHomePanel(frame);
+       
     }
     
+
     // displays the home screen
-    public static void showHomePanel(JFrame frame) {
+    public static void showHomePanel(JFrame frame){
     	HomePanel homepanel = new HomePanel(frame);
         frame.getContentPane().add(homepanel);
         
@@ -38,7 +46,7 @@ public class MainGui {
     }
 
     // displays the screen to make "payment"
-    public static void showPaymentPanel(JFrame frame, Pizza p) {
+    public static void showPaymentPanel(JFrame frame,Pizza p) {
     	PaymentPanel paymentpanel = new PaymentPanel(frame, p);
         frame.getContentPane().add(paymentpanel);
 
@@ -58,12 +66,5 @@ public class MainGui {
         frame.setVisible(true);
     }
 
-    public static void showChefsView(JFrame frame, Order i) {
-    	chefsViewGui chef = new chefsViewGui(frame, i);
-    	
-        frame.getContentPane().add(chef);
-      
-        frame.pack();
-        frame.setVisible(true);
-    }
+
 }

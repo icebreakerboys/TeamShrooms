@@ -22,6 +22,17 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import java.io.FileInputStream; 
 import java.io.FileNotFoundException; 
+//import javafx.application.Application; 
+//import javafx.scene.Group; 
+//import javafx.scene.Scene; 
+//import javafx.scene.image.Image;
+//import javafx.scene.image.ImageView;  
+//import javafx.stage.Stage;  
+
+//import javafx.*;
+
+
+
 
 public class HomePanel extends JPanel {
     private JButton OrderButton;
@@ -94,7 +105,7 @@ public class HomePanel extends JPanel {
 		frame.add(buttonPanel);
 		frame.add(bg);
         
-    }
+        }
 
     public class ButtonListener implements ActionListener {
     	private JFrame frame;
