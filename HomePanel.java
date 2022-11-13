@@ -77,17 +77,17 @@ public class HomePanel extends JPanel {
 		subtitle_panel.add(subtitle);
     	
     	// logo
-    	logo = new ImageIcon("res\\asulogo.png");
-    	logo_name =new JLabel( logo , 0);
+    	logo = new ImageIcon("res/ASUlogo.png");
+    	logo_name = new JLabel(logo, 0);
     	
     	
     	//frame.add(logo_name);
     	panel.add(title);
     	panel.add(OrderButton);
+		add(logo_name);
 		add(subtitle_panel);
         add(panel);
-        
-        }
+    }
 
     public class ButtonListener implements ActionListener {
     	private JFrame frame;

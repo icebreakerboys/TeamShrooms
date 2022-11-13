@@ -155,7 +155,7 @@ public class OrderPanel extends JPanel {
 		add(toppings2_panel);
 	
         logo = new ImageIcon("res/pizzaSlice.png");
-    	logo_name =new JLabel(logo , 0);
+    	logo_name =new JLabel(logo, 0);
     	
     	add(logo_name);
     	add(PayButton);
