@@ -20,10 +20,6 @@ public class MainGui {
     	HomePanel homepanel = new HomePanel(frame);
         frame.getContentPane().add(homepanel);
         
-        //setting background colors to maroon
-        Color customColor = new Color(140,29,64);
-        homepanel.setBackground(customColor);
-        
         frame.pack();
         frame.setVisible(true);
     }
