@@ -41,7 +41,7 @@ public class HomePanel extends JPanel {
     private ImageIcon logo;
     private JPanel panel, subtitle_panel;
 
-    public HomePanel(JFrame frame) throws FileNotFoundException {
+    public HomePanel(JFrame frame) {
     	
     	panel = new JPanel();
     	panel.setPreferredSize(new Dimension(1080, 720));

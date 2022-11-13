@@ -17,7 +17,7 @@ import javax.swing.JTextArea;
 public class PaymentPanel extends JPanel {
     private JButton submitButton;
     private JLabel cost, costPrompt;
-    private JLabel IDPrompt, namePrompt, emailPrompt, CHECK;
+    private JLabel IDPrompt, namePrompt, emailPrompt, CHECK, ThankyouPrompt,ThankyouPrompt2, designPrompt, designPrompt2;
     private JTextArea IDArea, nameArea, emailArea ;
 	
     Pizza p;
@@ -55,7 +55,29 @@ public class PaymentPanel extends JPanel {
     	cost.setForeground(Color.green);
     	costPrompt.setLocation(200, 010);
     	cost.setLocation(200, 010);
+    	
+    	
+    	designPrompt = new JLabel("|-|_|-|_|-|_|-|_|-|_|-|_|-|_|-|_|-|_|-|_|-|_|-|_|-|_|-|_|-|_|-|_|-|_|-|_|-|_|-|_|-|_|-|_|-|");
+    	designPrompt.setFont(new Font("Arial", Font.BOLD, 30));
+    	designPrompt.setLocation(350, 20);
+    	designPrompt.setForeground(Color.yellow);
+
+    	
+    	ThankyouPrompt = new JLabel(" Thank you for choosing Team Shrooms Pizza ");
+    	ThankyouPrompt.setFont(new Font("Arial", Font.BOLD, 48));
+    	ThankyouPrompt.setLocation(300, 20);
+    	ThankyouPrompt.setForeground(Color.getHSBColor(353, (float) 1.0, (float) 0.5));
+    	
+    	ThankyouPrompt2 = new JLabel(" Pizza, Customers, Quality Since 2022 and beyond ");
+    	ThankyouPrompt2.setFont(new Font("Arial", Font.BOLD, 44));
+    	ThankyouPrompt2.setLocation(250, 20);
+    	ThankyouPrompt2.setForeground(Color.getHSBColor(353, (float) 1.0, (float) 0.5));
 		
+    	designPrompt2 = new JLabel("|-|_|-|_|-|_|-|_|-|_|-|_|-|_|-|_|-|_|-|_|-|_|-|_|-|_|-|_|-|_|-|_|-|_|-|_|-|_|-|_|-|_|-|_|-|");
+    	designPrompt2.setFont(new Font("Arial", Font.BOLD, 30));
+    	designPrompt2.setLocation(350, 20);
+    	designPrompt2.setForeground(Color.yellow);
+    	
 		//Order newOrder = new Order(p, c, );
     	add(costPrompt);
 		add(cost);
@@ -66,6 +88,10 @@ public class PaymentPanel extends JPanel {
         add(emailPrompt);
         add(emailArea);
         add(submitButton);
+        add(designPrompt);
+        add(ThankyouPrompt);
+        add(ThankyouPrompt2);
+        add(designPrompt2);
     }
 
 	private String setTime(){
@@ -104,6 +130,10 @@ public class PaymentPanel extends JPanel {
 				remove(cost);
 				remove(costPrompt);
         		remove(submitButton);
+        		remove(designPrompt);
+        		remove(ThankyouPrompt);
+        		remove(ThankyouPrompt2);
+        		remove(designPrompt2);
 
 				String pickUpTime = setTime();
 				Order o = new Order(p, c, pickUpTime);

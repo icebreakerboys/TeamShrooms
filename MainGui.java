@@ -23,7 +23,7 @@ public class MainGui {
     
 
     // displays the home screen
-    public static void showHomePanel(JFrame frame) throws FileNotFoundException {
+    public static void showHomePanel(JFrame frame){
     	HomePanel homepanel = new HomePanel(frame);
         frame.getContentPane().add(homepanel);
         
@@ -49,8 +49,8 @@ public class MainGui {
     }
 
     // displays the screen to make "payment"
-    public static void showPaymentPanel(JFrame frame) {
-    	PaymentPanel paymentpanel = new PaymentPanel(frame);
+    public static void showPaymentPanel(JFrame frame,Pizza p) {
+    	PaymentPanel paymentpanel = new PaymentPanel(frame, p);
         frame.getContentPane().add(paymentpanel);
 
         //setting background colors to lightGray
