@@ -8,9 +8,6 @@ import java.awt.*;
 import javax.swing.JFrame;
 
 public class MainGui {
-
-	
-	static double total;
     public static void main(String[] args) throws FileNotFoundException {
 
         JFrame frame = new JFrame("Pizza Ordering App");
@@ -42,11 +39,11 @@ public class MainGui {
     public static void showOrderPanel(JFrame frame) {
     	OrderPanel orderpanel = new OrderPanel(frame);
         frame.getContentPane().add(orderpanel);
-        
+
         //setting background colors to gold
-        Color customColor2 = new Color(255,198,39);
-        orderpanel.setBackground(customColor2);
-        
+        Color customColor = new Color(255, 198, 39);
+        orderpanel.setBackground(customColor);
+
         frame.pack();
         frame.setVisible(true);
     }
@@ -56,14 +53,21 @@ public class MainGui {
     	PaymentPanel paymentpanel = new PaymentPanel(frame);
         frame.getContentPane().add(paymentpanel);
 
-        //setting background colors to maroon
-        Color customColor = new Color(140,29,64);
+        //setting background colors to lightGray
+        Color customColor = new Color(211, 211, 211);
         paymentpanel.setBackground(customColor);
-               
+
         frame.pack();
         frame.setVisible(true);
     }
 
+    public static void showProgressGUI(JFrame frame, Order o) {
+    	progressGUI progress = new progressGUI(frame, o);
+        frame.getContentPane().add(progress);
+
+        frame.pack();
+        frame.setVisible(true);
+    }
 
 
 }
