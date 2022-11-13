@@ -33,7 +33,7 @@ public class progressGUI extends JPanel{
     	
     	   
         // progress bar
-    	progressBAR=new JProgressBar(0,5);    
+    	progressBAR=new JProgressBar(0,300);    
     	progressBAR.setBounds(40,40,160,30);         
     	progressBAR.setValue(0);    
     	progressBAR.setStringPainted(true);
@@ -64,7 +64,12 @@ public class progressGUI extends JPanel{
       
     }
 	public void updateProgress(int newProgress){
-    	progressBAR.setValue(newProgress);
+     	if (newProgress == 2) {
+    		progressBAR.setValue(100*newProgress);
+    		
+    	}else {
+    		progressBAR.setValue(100*newProgress);
+    	}
     	
     }
     public class ButtonListener implements ActionListener {
