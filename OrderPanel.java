@@ -48,6 +48,8 @@ public class OrderPanel extends JPanel {
 		chs.setActionCommand(pizzaType = pickPizza("Cheese"));
 		veg = new JRadioButton("Veggie");
 		veg.setActionCommand(pizzaType = pickPizza("Veggie"));
+		//pizzaType = "";
+		//basePrice = 0;
     	// text to make pizza selection
     	
     	// adding the elements
@@ -190,6 +192,7 @@ public class OrderPanel extends JPanel {
 			double total = basePrice + topPrice;
 
 			if(!pizzaType.equals("")){
+				System.out.println(pizzaType);
 				Pizza newZA = new Pizza(pizzaType, toppings, total);
 
         		remove(PayButton);
