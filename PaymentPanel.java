@@ -15,7 +15,7 @@ public class PaymentPanel extends JPanel {
     private JButton submitButton;
     private JLabel cost, costPrompt;
     private JLabel IDPrompt, namePrompt, emailPrompt, CHECK;
-    private JTextArea IDArea, nameArea, emailArea ;
+    private JTextArea IDArea, nameArea, emailArea;
 	
     Pizza p;
 

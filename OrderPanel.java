@@ -7,18 +7,18 @@ import javax.swing.*;
 public class OrderPanel extends JPanel {
     private JButton PayButton;
 
-    private JLabel pizza_type, logo_name, toppings_label;
-    private JPanel input_panel, toppings_panel, toppings2_panel;
+    private JLabel pizzaPrompt, logo_name, toppingsPrompt;
+    private JPanel pizza2_panel, toppings_panel, toppings2_panel;
 
 	String pizzaType = "";
 	boolean toppings[] = new boolean[4];
 	double topPrice = 0;
 	double basePrice = 0;
 
-	private ButtonGroup group, tops;
+	private ButtonGroup types, tops;
     private JRadioButton pep, chs, veg;	
-    private JPanel top1_panel, top2_panel ,pizza_panel, bg;
-    private JCheckBox mush, onion , olives , exChs;
+    private JPanel top1_panel, top2_panel, pizza_panel, bg;
+    private JCheckBox mush, onion, olives, exChs;
     private ImageIcon logo;
 
     public OrderPanel(JFrame frame) {
@@ -30,57 +30,52 @@ public class OrderPanel extends JPanel {
     	PayButton.setPreferredSize(new Dimension(250, 50));
     	PayButton.setFont(new Font("Arial", Font.PLAIN, 25));
     	PayButton.addActionListener(new ButtonListener(frame));
-    	input_panel = new JPanel();
-		input_panel.setLayout(new GridLayout(10, 10, 10, 10));
+    	pizza2_panel = new JPanel();
+		pizza2_panel.setLayout(new GridLayout(10, 10, 10, 10));
 					
 		pizza_panel = new JPanel();
 		pizza_panel.setLayout(new GridLayout(1, 3));
 		
 		//Delivery Type
-		pizza_type = new JLabel(" Base Pizza Type:");
-		pizza_type.setFont(new Font("Arial", Font.BOLD, 30));
+		pizzaPrompt = new JLabel(" Base Pizza Type:");
+		pizzaPrompt.setFont(new Font("Arial", Font.BOLD, 30));
 
 		//	delivery_panel.add(delivery_type);
 		pep = new JRadioButton("Pepperoni");
 		pep.setPreferredSize(new Dimension(50, 50));
-		pep.setActionCommand(pizzaType = pickPizza("PEP"));
+		pep.setActionCommand(pizzaType = "PEP");
 		chs = new JRadioButton("Cheese");
-		chs.setActionCommand(pizzaType = pickPizza("Cheese"));
+		chs.setActionCommand(pizzaType = "Cheese");
 		veg = new JRadioButton("Veggie");
-		veg.setActionCommand(pizzaType = pickPizza("Veggie"));
-		//pizzaType = "";
-		//basePrice = 0;
+		veg.setActionCommand(pizzaType = "Veggie");
     	// text to make pizza selection
     	
     	// adding the elements
-		group = new ButtonGroup();
-		group.add(pep);
-		group.add(chs);
-		group.add(veg);
+		types = new ButtonGroup();
+		types.add(pep);
+		types.add(chs);
+		types.add(veg);
 		pizza_panel.add(pep);
 		pizza_panel.add(chs);
 		pizza_panel.add(veg);
 		pizza_panel.setAlignmentY(BOTTOM_ALIGNMENT);
 		
-		input_panel.add(pizza_type);					
-		input_panel.add(pizza_panel);		
-		add(pizza_type);
+		pizza2_panel.add(pizzaPrompt);					
+		pizza2_panel.add(pizza_panel);
+		add(pizzaPrompt);
 		add(pizza_panel);
 
 		top1_panel = new JPanel();
 		top1_panel.setLayout(new GridLayout(1, 3));
-		
 		top2_panel = new JPanel();
 		top2_panel.setLayout(new GridLayout(1, 3));
-		
 		toppings_panel = new JPanel();
 		toppings_panel.setLayout(new GridLayout(2, 1));
-		
 		toppings2_panel = new JPanel();
 		toppings2_panel.setLayout(new GridLayout(2, 1));
 		
-		toppings_label = new JLabel("Toppings:");
-		toppings_label.setFont(new Font("Arial", Font.BOLD, 25));
+		toppingsPrompt = new JLabel("Toppings:");
+		toppingsPrompt.setFont(new Font("Arial", Font.BOLD, 25));
 
 		onion = new JCheckBox("Onion", false);
 		mush = new JCheckBox("Mushroom", false);
@@ -153,30 +148,35 @@ public class OrderPanel extends JPanel {
 		top1_panel.add(mush);
 		top2_panel.add(olives);	
 		top2_panel.add(exChs);					
-	
 		toppings_panel.add(top1_panel);
 		toppings_panel.add(top2_panel);
-					
-		toppings2_panel.add(toppings_label);
+		toppings2_panel.add(toppingsPrompt);
 		toppings2_panel.add(toppings_panel);
 		add(toppings2_panel);
 	
-        logo = new ImageIcon("res/pizzaSlice.jpg");
+        logo = new ImageIcon("res/pizzaSlice.png");
     	logo_name =new JLabel(logo , 0);
     	
     	add(logo_name);
     	add(PayButton);
     }
 
-	private String pickPizza(String type){
-		if(type.equals("Cheese")){
+	private boolean pickPizza(){
+		boolean selected = false;
+		if(pep.isSelected()){
 			basePrice = 5;
-		} else if(type.equals("PEP")){
+			selected = true;
+			pizzaType = "Pepperoni";
+		} else if(chs.isSelected()){
 			basePrice = 5;
-		} else if(type.equals("Veggie")){
+			selected = true;
+			pizzaType = "Cheese";
+		} else if(veg.isSelected()){
 			basePrice = 5;
+			selected = true;
+			pizzaType = "Veggie";
 		}
-		return type;
+		return selected;
 	}
 
     public class ButtonListener implements ActionListener {
@@ -190,25 +190,24 @@ public class OrderPanel extends JPanel {
         public void actionPerformed(ActionEvent event) {
         	// remove the elements
 			double total = basePrice + topPrice;
+			boolean selected = pickPizza();
 
-			if(!pizzaType.equals("")){
+			if(selected){
 				System.out.println(pizzaType);
 				Pizza newZA = new Pizza(pizzaType, toppings, total);
 
         		remove(PayButton);
         		remove(pizza_panel);
         		remove(toppings2_panel);
-        		remove(pizza_type);
+        		remove(pizzaPrompt);
         		remove(toppings2_panel);
         		remove(logo_name);
 
         		// transition to payment screen
         		MainGui.showPaymentPanel(frame, newZA);
 			} else {
-				pizza_type.setText("Must Select Base Pizza: ");
+				pizzaPrompt.setText("Must Select Base Pizza: ");
 			}
-        	
         }
-    }
-
+	}
 }

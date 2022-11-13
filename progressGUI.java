@@ -30,8 +30,6 @@ public class progressGUI extends JPanel{
     	ReturnHome = new JButton(" Return to home ");
     	ReturnHome.addActionListener(new ButtonListener(frame));
 
-    	
-    	   
         // progress bar
     	progressBAR=new JProgressBar(0,5);    
     	progressBAR.setBounds(40,40,160,30);         
@@ -60,12 +58,9 @@ public class progressGUI extends JPanel{
         add(progressBAR);
 		//add(timeReady);
 		add(emailReceipt);
-     
-      
     }
 	public void updateProgress(int newProgress){
     	progressBAR.setValue(newProgress);
-    	
     }
     public class ButtonListener implements ActionListener {
     	private JFrame frame;

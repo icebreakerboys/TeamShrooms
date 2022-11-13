@@ -10,6 +10,7 @@ public class MainGui {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setPreferredSize(new Dimension(1080, 720));
         frame.setBackground(Color.RED);
+        frame.setResizable(false);
        
         // make the initial call to show the home screen
         showHomePanel(frame);
