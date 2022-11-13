@@ -25,10 +25,10 @@ import java.io.FileNotFoundException;
 
 public class HomePanel extends JPanel {
     private JButton OrderButton;
-    private JLabel title, pic, logo_name;
+    private JLabel title, pic, logo_name, subtitle;
     private JTextArea PizzaArea;
     private ImageIcon logo;
-    private JPanel panel;
+    private JPanel panel, subtitle_panel;
 
     public HomePanel(JFrame frame) {
     	
@@ -50,10 +50,20 @@ public class HomePanel extends JPanel {
     	OrderButton.setPreferredSize(new Dimension(300, 100));
     	OrderButton.setFont(new Font("Arial", Font.PLAIN, 30));
     	OrderButton.addActionListener(new ButtonListener(frame));
-		OrderButton.setLocation(500, 250);
-    	title = new JLabel("Welcome to the Pizza Ordering Application :D");
-		title.setFont(new Font("Arial", Font.PLAIN, 30));
-    	title.setLocation(500, 100);
+		OrderButton.setLocation(0, 250);
+
+		// title
+    	title = new JLabel("Welcome to SUNDEVIL PIZZA");
+		title.setFont(new Font("Arial", Font.BOLD, 30));
+		title.setForeground(Color.BLACK);
+
+		subtitle = new JLabel("Welcome to SUNDEVIL PIZZA");
+		subtitle.setFont(new Font("Arial", Font.PLAIN, 18));
+		subtitle.setForeground(Color.YELLOW);
+		subtitle_panel = new JPanel();
+		subtitle_panel.setSize(250, 100);
+		subtitle_panel.setLocation(100, 300);
+		subtitle_panel.add(subtitle);
     	
     	// logo
     	logo = new ImageIcon("res/ASUlogo.png");
@@ -62,6 +72,7 @@ public class HomePanel extends JPanel {
     	//frame.add(logo_name);
     	panel.add(title);
     	panel.add(OrderButton);
+		add(subtitle_panel);
         add(panel);
         
     }
@@ -78,9 +89,7 @@ public class HomePanel extends JPanel {
             remove(logo_name);
         	remove(OrderButton);
         	remove(title);
-
         	remove(logo_name);
-
         	remove(panel);
 
         	// transition to order screen

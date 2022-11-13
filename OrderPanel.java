@@ -27,7 +27,7 @@ public class OrderPanel extends JPanel {
     	setLayout(new FlowLayout(FlowLayout.CENTER, 40, 40));
     	
     	PayButton = new JButton(" Pay Now! ");
-    	PayButton.setPreferredSize(new Dimension(100, 50));
+    	PayButton.setPreferredSize(new Dimension(250, 50));
     	PayButton.setFont(new Font("Arial", Font.PLAIN, 25));
     	PayButton.addActionListener(new ButtonListener(frame));
     	input_panel = new JPanel();
