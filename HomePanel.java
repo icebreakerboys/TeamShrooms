@@ -91,12 +91,12 @@ public class HomePanel extends JPanel {
 		logoPanel.setBackground(Color.GRAY);
 
     	logo = new ImageIcon("res/ASUlogo.png");
-    	logo_name = new JLabel( logo , 0);
+    	logo_name = new JLabel(logo, 0);
 
 		logoPanel.add(logo_name);
     	
 		frame.add(titlePanel);
-    	//frame.add(logoPanel);
+    	frame.add(logoPanel);
 		frame.add(subtitle_panel);
 		frame.add(buttonPanel);
 		frame.add(bg);
@@ -120,5 +120,4 @@ public class HomePanel extends JPanel {
         	MainGui.showOrderPanel(frame);
         }
     }
-
 }
