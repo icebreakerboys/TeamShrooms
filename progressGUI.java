@@ -8,13 +8,11 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 public class progressGUI extends JPanel{
-   // ProgressBar progressBar = new ProgressBar(0);
     JProgressBar jb;    
     JProgressBar progressBAR;
 	JLabel timeReady, emailReceipt;
@@ -33,15 +31,15 @@ public class progressGUI extends JPanel{
     	
     	   
         // progress bar
-    	progressBAR=new JProgressBar(0,300);    
-    	progressBAR.setBounds(40,40,160,30);         
-    	progressBAR.setValue(0);    
+    	progressBAR=new JProgressBar(0,300);
+    	progressBAR.setBounds(40,40,160,30);   
+    	progressBAR.setValue(0);
     	progressBAR.setStringPainted(true);
 
 		// thank you text
 		timeReady = new JLabel("Your order will be ready to pick up at " + o.getPickUpTime());
-    	timeReady.setFont(new Font("Arial", Font.PLAIN, 20));
-    	timeReady.setLocation(300, 700);
+    	timeReady.setFont(new Font("Arial", Font.BOLD, 30));
+    	timeReady.setLocation(160, 100);
 
 		emailReceipt = new JLabel("A receipt has been sent to " + o.getCustomerEmail());
     	emailReceipt.setFont(new Font("Arial", Font.PLAIN, 20));
@@ -49,7 +47,7 @@ public class progressGUI extends JPanel{
 
 		// SET LOCATION OF JLABEL
 		panel = new JPanel();
-		panel.setSize(600, 300);
+		panel.setSize(700, 300);
 		panel.setLocation(0, 300);
 		panel.add(timeReady);
 		panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
@@ -58,9 +56,7 @@ public class progressGUI extends JPanel{
     	// add the elements
         add(ReturnHome);
         add(progressBAR);
-		//add(timeReady);
 		add(emailReceipt);
-     
       
     }
 	public void updateProgress(int newProgress){
@@ -82,6 +78,7 @@ public class progressGUI extends JPanel{
         public void actionPerformed(ActionEvent event) {
         	remove(ReturnHome);
         	remove(progressBAR);
+			remove(emailReceipt);
  
         	// transition back to the home panel
 			MainGui.showHomePanel(frame);

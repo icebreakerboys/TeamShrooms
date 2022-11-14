@@ -28,11 +28,7 @@ import java.io.FileNotFoundException;
 //import javafx.scene.image.Image;
 //import javafx.scene.image.ImageView;  
 //import javafx.stage.Stage;  
-
 //import javafx.*;
-
-
-
 
 public class HomePanel extends JPanel {
     private JButton OrderButton;
@@ -104,7 +100,6 @@ public class HomePanel extends JPanel {
 		frame.add(subtitle_panel);
 		frame.add(buttonPanel);
 		frame.add(bg);
-        
         }
 
     public class ButtonListener implements ActionListener {
@@ -120,12 +115,9 @@ public class HomePanel extends JPanel {
         	frame.remove(subtitle_panel);
         	frame.remove(buttonPanel);
         	frame.remove(bg);
-        	//remove(panel);
-			//remove(subtitle_panel);
 
         	// transition to order screen
         	MainGui.showOrderPanel(frame);
-
         }
     }
 
